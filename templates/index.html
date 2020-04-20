@@ -40,7 +40,9 @@
 
 			<div class="slick preloading h-carousel js-slider-carousel ">
 				{% for  image in slides %}
-				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); background-size: cover">
+				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); 
+												background-size: 100% 100% ;
+												">
 					<div class="inner" style="color: #fff;">
 						<h3>Where you will never grow up !</h3>
 						<a href="{%url 'shop' %}"><h4>SHOP NOW</h4></a>
@@ -64,15 +66,15 @@
 					srcset="{%static 'img/girl-banner.png' %}"
 					alt="Dark Blue Jacket">
 				<div class="inner">
-					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls Customs </h3>
+					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls <br> Customs </h3>
 				</div>
-				<!-- <div class="price" style="color: #D72378">$27</div> -->
+				
 				<a class="more" href="{%url 'shop' %}" style="background: #D72378">Shop Now</a>
 			</div>
 			<div class="banner  boxed-layout alfa-image">
 				<div class="bg" style="background: #3DB0D8"></div>
 				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
-					srcset=""
+					srcset="{% static 'img/boy-banner.png' %}"
 					alt="boys costumes" >
 				<div class="inner"  style="color: #3DB0D8">
 					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Customs </h3>
