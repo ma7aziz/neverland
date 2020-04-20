@@ -1,0 +1,482 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+<style>
+	@media (max-width: 600px){
+		 #home-slider h3 , #home-slider h4  {
+			color: #fff;
+		}
+		
+	}
+</style>
+{% if messages %}
+
+<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
+	{% for message in messages %}
+	<p>{{message}}</p>
+	{% endfor%}
+</div>
+{%  endif %}
+
+<body
+	class="
+	product-template-default single single-product postid-53 custom-background theme-kidz woocommerce woocommerce-page woocommerce-no-js sidebar-disable sidebar-short header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload ">
+
+	{%include 'partials/_search.html' %}
+	<div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+		{% include 'partials/main_header.html' %}
+		<div class="woocommerce-notices-wrapper">
+		</div>
+		<section id="home-slider" class="home-section  home-section--long" data-slides-count="3" data-slider_speed="400"
+			data-slider_hide_dots="0" data-slider_hide_arrows="0" data-slider_effect="slide"
+			data-slider_interval="5000">
+
+			<div class="slick-preloader ">
+				<div class="img"
+					style="background-image: url(https://images.unsplash.com/photo-1564076379269-ed99f6d3fbe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);">
+				</div>
+				<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+			</div>
+
+			<div class="slick preloading h-carousel js-slider-carousel ">
+				{% for  image in slides %}
+				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); background-size: cover">
+					<div class="inner" style="color: #fff;">
+						<h3>Where you will never grow up !</h3>
+						<a href="{%url 'shop' %}"><h4>SHOP NOW</h4></a>
+					</div>
+				</div>
+				{% endfor %}
+
+
+			</div>
+		</section>
+
+		<section id="home-banners" class="preloading" style="background-color: #F4F8FF;">
+			<div class="banner  boxed-layout alfa-image">
+				<div class="bg" style="background: #3DB0D8"></div>
+				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
+					srcset=""
+					alt="Warm Winter Jacket" style="">
+				<div class="inner"  style="color: #3DB0D8">
+					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Customs </h3>
+				</div>
+				<!-- <div class="price" style="color: #3DB0D8">Lorem, ipsum.</div> -->
+				<a class="more" href="{%url 'shop' %}" style="background: #3DB0D8">Shop Now</a>
+			</div>
+			<!--
+					-->
+			<div class="banner  boxed-layout alfa-image">
+				<div class="bg" style="background: #D72378">
+
+				</div>
+				<img class="thumb" src="{% static 'img/DSC_1431.png' %}"
+					srcset="{%static 'img/girl-banner.png' %}"
+					alt="Dark Blue Jacket">
+				<div class="inner">
+					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls Customs </h3>
+				</div>
+				<!-- <div class="price" style="color: #D72378">$27</div> -->
+				<a class="more" href="{%url 'shop' %}" style="background: #D72378">Shop Now</a>
+			</div>
+
+			<!--
+			-->
+		</section>
+
+
+		<section id="home-review">
+			<div class="container">
+				<div class="slick-review h-carousel h-carousel--flex h-carousel--wide-arrows ">
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+					
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+					
+					
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+						
+					
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					
+				
+				</div>
+			</div>
+		</section>
+
+		<section id="home-post">
+			<div class="container">
+				<div class="home-post-header-wrap">
+					<a href="{% url 'news' %}">
+						<h2>News </h2>
+					</a>
+				</div>
+				<div class="row">
+					{%for post in recent_posts%}
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<article id="bottom-post-179"
+							class="post-179 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+
+							<div class="lazyload post-img" data-bgset="{{post.photo_main.url}}"></div>
+
+
+							<div class="post-content">
+								<div class="post-meta">
+									<span class="post-date">
+										{{post.timestamp.date}} </span>
+								</div>
+								<header class="post-header">
+									<a href="/news/news/{{post.id}}">
+										<h3>{{post.title}}</h3>
+									</a>
+								</header>
+								<span class="more">Read More</span>
+							</div>
+							<a href="/news/news/{{post.id}}" class="whole"></a>
+						</article>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+		<section id="home-brand" style="background-color: #F4F8FF">
+			<div class="container">
+				<div class="list list--7 h-carousel h-carousel--wide-arrows " id="brands-carousel">
+
+					<div class="lazyload brand" title="Brand 1"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+									
+				
+
+					<div class="lazyload brand" title="Brand 2"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 3"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 4"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+									
+				
+
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+
+		
+				</div>
+			</div>
+		</section>
+
+		<section id="home-text" style="background: #31ACD8 ; color: #fff">
+			<div class="container">
+				<h1 style="border-bottom: 3px solid #fff;">Neverland Egypt</h1> 
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="entry-content">
+							<div class="clear"></div>
+							<div class="two-col">
+								<div class="left">
+									<!-- <img src="https://images.unsplash.com/photo-1532493943049-c89000707a39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
+										alt=""> -->
+
+								</div>
+								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
+									<div>Neverland hosts a large collection of supposedly
+										scary but actually funny outfits for kids aged between three to fourteen years, <br>
+										as well as a rather limited collection of adult costumes. <br> Additionally, the shop
+										also offers cute accessories to match your costume. </div>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="home-tabs" class="c-home-tabs c-home-tabs--padding-top c-home-tabs--padding-bottom">
+			<div class="container home-tabs-wrap">
+				<ul class="home-tabs clear">
+					<li class="current">
+						<a href="#tab-featured_products">
+							Featured </a>
+					</li>
+					<!-- <li>
+						<a href="#tab-sale_products">
+							On a Sale </a>
+					</li> -->
+					<li>
+						<a href="#tab-best_selling_products">
+							Bestsellers </a>
+					</li>
+					<li>
+						<a href="#tab-recent_products">
+							Latest </a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="tab-featured_products" data-per-page="12" class="container home-tab visible current">
+				<div class="woocommerce columns-4 ">
+					<div class="products-wrap products-wrap--mobile-small">
+						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+
+							{% for item in featured %}
+							<div
+								class="product type-product post-144 status-publish first instock product_cat-boy-shoes product_cat-shoes has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+								<div class="ip-shop-loop-wrap">
+
+									<div class="ip-shop-loop-thumb">
+										<a href="product/{{item.id}}">
+
+											<img src="{{item.image1.url}}" style="height: 100%;"	 />
+										</a>
+									</div>
+
+									<div class="ip-shop-loop-details">
+										<h3><a href="product/{{item.id}}">{{item.title}}</a>
+										</h3>
+
+
+										<div class="ip-shop-loop-after-title">
+											<div class="ip-shop-loop-price">
+
+												<span class="price"><span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">LE
+														</span>{{item.price}}</span></span>
+											</div>
+											<div class="ip-shop-loop-actions">
+
+
+												<a href="#" class="ip-wishlist-btn wishlist-btn " data-id="{{item.id}}"
+													data-title="Wishlist">
+													<i class="far fa-heart fa-2x" style=""></i>
+												</a>
+
+												<a href="/product/{{item.id}}" >
+													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
+													add to cart
+												</a>
+
+
+												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+
+			<div id="tab-best_selling_products" data-per-page="12" class="container home-tab">
+				<div class="woocommerce columns-4 ">
+					<div class="products-wrap products-wrap--mobile-small">
+						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+
+							{% for item in most_sold %}
+							<div
+								class="product type-product post-57 status-publish first instock product_cat-bottoms product_cat-bottoms-for-babies product_cat-for-babies product_cat-for-boys product_cat-gifts product_cat-sweaters product_cat-sweaters-for-babies product_cat-tops has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+
+
+								<div class="ip-shop-loop-wrap">
+
+									<div class="ip-shop-loop-thumb">
+										<a href="/product/{{item.id}}">
+
+											<img src="{{ item.image1.url }}" alt="{{ item.title }}"
+												class="thumb-shop-catalog lazyload front"
+												style="height: 100%;"	 />
+										</a>
+									</div>
+
+									<div class="ip-shop-loop-details">
+										<h3><a href="product/{{item.id}}">{{ item.title }}</a></h3>
+
+
+										<div class="ip-shop-loop-after-title">
+											<div class="ip-shop-loop-price">
+
+												<span class="price"><span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">LE
+														</span>{{item.price}}</span></span>
+											</div>
+											<div class="ip-shop-loop-actions">
+												<a href="#" class="ip-wishlist-btn " data-product-id="144"
+													data-title="Wishlist">
+													<i class="far fa-heart fa-2x" style=""></i>
+												</a>
+
+												<a href="product/{{item.id}}" >
+													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
+													add to cart
+												</a>
+
+
+												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+
+
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div id="tab-recent_products" data-per-page="12" class="container home-tab">
+				<div class="woocommerce columns-4 ">
+					<div class="products-wrap products-wrap--mobile-small">
+						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+							{% for item in  recent_items %}
+							<div
+								class="product type-product post-150 status-publish first instock product_cat-girl-shoes product_cat-shoes has-post-thumbnail shipping-taxable purchasable product-type-simple">
+
+
+								<div class="ip-shop-loop-wrap">
+
+									<div class="ip-shop-loop-thumb">
+										<a href="product/{{item.id}}">
+											<span class="ip-shop-loop-new-badge">New</span>
+											<img src="{{item.image1.url }}" data-src="{{item.image1.url}}"
+												alt="Stride rite str tulip sandal"
+												class="thumb-shop-catalog lazyload front"
+												data-srcset="{{item.image1.url}} 210w,"
+												style="height: 100%;"  />
+										</a>
+									</div>
+
+									<div class="ip-shop-loop-details">
+										<h3><a href="product/{{item.id}}" >{{item.title}}</a></h3>
+
+
+										<div class="ip-shop-loop-after-title">
+											<div class="ip-shop-loop-price">
+
+												<span class="price"><span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">LE
+														</span>{{item.price}}</span></span>
+											</div>
+											<div class="ip-shop-loop-actions">
+												<a href="#" class="ip-wishlist-btn " data-product-id="144"
+													data-title="Wishlist">
+													<i class="far fa-heart fa-2x" style=""></i>
+												</a>
+
+												<a href="/product/{{item.id}}" >
+													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
+													add to cart
+												</a>
+
+
+												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{%endfor%}
+
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<section class="clearfix  home-instagram">
+			<div class="home-post-header-wrap">
+				<h2>
+					<a href="https://www.facebook.com/NeverlandcostumeEG/" target="_blank">
+						<i class="fab fa-facebook-square "></i> Neverland Costume EG</a>
+				</h2>
+			</div>
+			<div class="home-gellery list "
+				  style="display:grid; grid-template-columns: repeat(6, 1fr) ; max-height: 150px">
+				<img src="{%static 'img/home-1.jpg'%}" alt="" width="100%" height="100%">	
+				<img src="{%static 'img/home-2.jpeg'%}" alt="" width="100%" height="100%">	
+				<img src="{%static 'img/home-3.jpeg'%}" alt="" width="100%" height="100%">	
+				<img src="{%static 'img/home-4.jpeg'%}" alt="" width="100%" height="100%">	
+				<img src="{%static 'img/home-5.jpg'%}" alt="" width="100%" height="100%">	
+				<img src="{%static 'img/home-6.jpeg'%}" alt="" width="100%" height="100%">	
+			</div>
+		</section>
+		{% include 'partials/footer.html' %}
+	</div><!-- #wrap -->
+	<div id="ip-quickview"></div>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+	<script>
+		
+		
+		$('#brands-carousel').slick({
+			arrows: false, 
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+		})
+		$('.review-carousel').slick({
+			arrows: false, 
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+		})
+	</script>
+
+
+
+</body>
+
+
+
+</html>
+
+
+{% endblock %}

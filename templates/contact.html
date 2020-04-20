@@ -1,0 +1,149 @@
+{%  extends 'base.html' %}
+{%load static %}
+{% block title %} Contact Us {% endblock %}
+{% block content%}
+
+<body
+    class="page-template page-template-page-templates page-template-contact page-template-page-templatescontact-php page page-id-431 custom-background theme-kidz woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+    {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        {% include 'partials/main_header.html' %}
+        <header class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Contact Us</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% if messages %}
+
+		<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
+			{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor%}
+		</div>
+		{%  endif %}
+        <div class="container post-container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="entry-content contact-blocks">
+                        <li class="contact-block" id="contact-block-phones">
+                            <img src="{%static 'img/icons/call.svg' %}" class="contact-ico contact-ico__phones" alt="">
+                               
+                            <div class="contact-header">Phones</div>
+                            1-800-312-2121
+                        </li>
+                        <li class="contact-block" id="contact-block-email">
+                            <img class="contact-ico contact-ico__email" src="{%static 'img/icons/mail.svg' %}" alt="">
+                            <div class="contact-header">Email</div>
+                            <a href="">example@domain.net</a>
+                        </li>
+                        <li class="contact-block" id="contact-block-address">
+                            <div class="contact-header">Address</div>
+                            <img class="contact-ico contact-ico__address" src="{%static 'img/icons/map.svg' %}" alt="">
+                            13 dr، Ezzat Salama, Nasr City, <br>
+                            Cairo.
+                        </li>
+                    </ul>
+                    <div class="contact-row-2">
+                        <div class="contact-form" id="contact-form">
+                            <div role="form" class="wpcf7" id="wpcf7-f6-o1" lang="en-US" dir="ltr">
+                                <div class="screen-reader-response">
+                                    <h2>Contact Us </h2>
+                                </div>
+                                <form action="{%url 'contact' %}" method="post" class="wpcf7-form"
+                                    novalidate="novalidate">
+                                  
+                                    <p><label> Your Name (required)<br />
+                                            <span class="wpcf7-form-control-wrap your-name"><input type="text"
+                                                    name="name" value="" size="40"
+                                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                    aria-required="true" aria-invalid="false" required/></span> </label></p>
+                                    <p><label> Your Email (required)<br />
+                                            <span class="wpcf7-form-control-wrap your-email"><input type="email"
+                                                    name="email" value="" size="40"
+                                                    class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                    aria-required="true" aria-invalid="false"  required/></span> </label></p>
+                                    <p><label> Your Phone (required)<br />
+                                            <span class="wpcf7-form-control-wrap your-email"><input type="email"
+                                                    name="phone" value="" size="40"
+                                                    class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                    aria-required="true" aria-invalid="false" required /></span> </label></p>
+                                                    {% csrf_token %}
+                                    <p><label> Your Message<br />
+                                            <span class="wpcf7-form-control-wrap your-message"><textarea
+                                                    name="message" cols="40" rows="5"
+                                                    class="wpcf7-form-control wpcf7-textarea"
+                                                    aria-invalid="false" required></textarea></span> </label></p>
+                                    <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
+                                    <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <div class="contact-map" id="contact-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13813.403220693315!2d31.3434721!3d30.0554774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xba73391a433ec1c8!2sNeverland!5e0!3m2!1sen!2seg!4v1586983283271!5m2!1sen!2seg" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="screen-reader-response">
+                                <h2>Our Branches </h2>
+                            </div>
+                            <div class="row">
+                                <h3>
+                                    Nasr City
+                                </h3>
+                                <div>
+                                    <p> <img src="{%static 'img/icons/map.svg' %}" alt="" height= "20px" width="30px"> 13 dr، Ezzat Salama, Nasr City,
+                                        Cairo.</p>
+                                    <p><img src="{% static 'img/icons/call.svg' %}" alt=""  height= "20px" width="30px"> 010555555</p> 
+                                    <a href="" style="color: #37AAD4;"><i class="fas fa-street-view fa-2x" ></i> Get Directions</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h3>
+                                    New Cairo
+                                </h3>
+                                <div>
+                                    <p> <img src="{%static 'img/icons/map.svg' %}" alt="" height= "20px" width="30px"> Maxim Mall , New Cairo</p>
+                                    <p><img src="{% static 'img/icons/call.svg' %}" alt=""  height= "20px" width="30px"> 010555555</p> 
+                                    <a href="https://www.google.com/maps/place/Maxim+Mall/@30.0294203,31.4966001,15z/data=!4m5!3m4!1s0x0:0xcee8c262752427a3!8m2!3d30.0294203!4d31.4966001" style="color: #37AAD4;" target="__blank"><i class="fas fa-street-view fa-2x" ></i> Get Directions</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h3>
+                                    6 October City
+                                </h3>
+                                <div>
+                                    <p> <img src="{%static 'img/icons/map.svg' %}" alt="" height= "20px" width="30px"> 6th of October, Central Spine, El Horraya Sq., Cityscape Mall, Level 2 </p>
+                                    <p><img src="{% static 'img/icons/call.svg' %}" alt=""  height= "20px" width="30px"> 01090142018</p> 
+                                    <a href="https://www.google.com/maps/place/Cityscape+Mall/@29.9630743,30.7873302,11z/data=!4m8!1m2!2m1!1scity+escape!3m4!1s0x1458566ecb51b3bb:0x2c2103aa799a0331!8m2!3d29.9630743!4d30.9274059" style="color: #37AAD4;" target="__blank"><i class="fas fa-street-view fa-2x" ></i> Get Directions</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <section role="main" class="post-open">
+                        <article id="post-431" class="post-431 page type-page status-publish hentry">
+                            <div class="entry-content">
+
+                                <div class="clear"></div>
+
+                            </div>
+
+
+
+
+
+
+                        </article>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/footer.html' %}
+
+        {%endblock%}

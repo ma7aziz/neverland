@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% block title %} Cart {% endblock %}
+{%load static %}
+{% block content %}
+<body class="page-template-default page page-id-348 custom-background theme-kidz woocommerce-cart woocommerce-page woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+		<style>
+		.cart_update{
+
+			margin-right: 5px;
+			border: none;
+			color: #FF5B4B;
+			padding: 0 0 0 20px;
+			font: 700 11px/11px 'Open Sans', sans-serif;
+			text-transform: uppercase;
+			line-height: 36px;
+		}
+		@media (max-width :500px) {
+			.small-amount {
+				display: none;
+			}
+			.cart-collaterals {
+				font-size: 0.7em;
+				padding-left :auto 10px;
+			}
+		}
+		</style>
+		
+		{%include 'partials/_search.html' %}
+	<div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+		{% include 'partials/main_header.html' %}
+		
+		<header class="main-header">
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>Cart</h1>
+					</div>
+				</div>
+			</div>
+		</header>
+		{% if messages %}
+
+		<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
+			{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor%}
+		</div>
+		{%  endif %}
+		<div class="container post-container">
+			<div class="row">
+				<div class="col-md-12">
+					<section role="main" class="post-open">
+						<article id="post-348" class="post-348 page type-page status-publish hentry">
+							<div class="shop-content">
+
+								<div class="woocommerce">
+									<div class="woocommerce-notices-wrapper"></div>
+									{% if cart and cart_count > 0 %}
+									<div class="container post-container" >
+										<div class="row">
+										<div class="col-md-12">
+											<section role="main" class="post-open">
+												<article id="post-348" class="post-348 page type-page status-publish hentry">
+													<div class="shop-content">
+														<div class="woocommerce">
+															<div class="woocommerce-notices-wrapper"></div>
+															<form class="woocommerce-cart-form"
+																action=""
+																method="post">
+																<div class="row">
+																	<div class="col-md-8">
+																		<table
+																			class="shop_table shop_table_responsive cart woocommerce-cart-form__contents"
+																			cellspacing="0">
+																			<thead>
+																				<tr>
+																					<th class="product-name"
+																						colspan="2">Product</th>
+																					
+																					<th class="product-quantity">
+																						Quantity</th>
+																					<th class="product-subtotal">
+																						Subtotal</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				{% for item in cart.cart_item_set.all %}
+																				<tr
+																					class="woocommerce-cart-form__cart-item cart_item">
+
+																					<td class="product-thumbnail">
+																						<a href="/remove_cart/{{item.id}}"
+																							class="remove"
+																							aria-label="Remove this item"
+																							>&times;</a>
+																						<a
+																							href="/product/{{item.item.id}}">
+																							<img
+																								width="70" height="70"
+																								data-src="{{item.image1.url}}"
+																								class="lazyload attachment-thumbnail size-thumbnail"
+																								alt=""
+																								data-srcset="{{item.item.image1.url}} 70w"
+																								data-sizes="(max-width: 70px) 100vw, 70px" /></a>
+																					</td>
+
+																					<td class="product-name"
+																						data-title="Product">
+																						<a
+																							href="/product/{{item.item.id}}">{{item.item.title}}</a>
+																						<div class="product-price" data-title="Price">
+																							<span
+																								class="woocommerce-Price-amount small-amount"><span
+																									class="woocommerce-Price-currencySymbol">Size </span> 
+																									<span style="text-transform: uppercase">{{item.size.abb}} </span>
+																							<br><span
+																								class="woocommerce-Price-amount amount"><span
+																									class="woocommerce-Price-currencySymbol">LE </span>{{item.item.price}}</span>
+																						</div>
+																					</td>
+																					
+
+																					<td class="product-quantity"
+																						data-title="Quantity">
+																						<div class="quantity">
+																							
+																							<input type="number"
+																								data-id="{{item.item.id}}"
+																								data-size = "{{item.size.id}}"
+																								class="input-text qty text qty-cart"
+																								step="1" min="0" max=""
+																								name="cart[0a09c8844ba8f0936c20bd791130d6b6][qty]"
+																								value="{{item.qty}}" title="Qty"
+																								size="4" placeholder=""
+																								inputmode="numeric" />
+																							<button
+																								class="ip-quantity-btn ip-quantity-btn--minus ip-prod-quantity-minus minus_qty "
+																								data-id="{{item.item.id}}" type="button">-</button>
+																							<button
+																								class="ip-quantity-btn ip-prod-quantity-plus cart_add"
+																								type="button" data-id="{{item.item.id}}" data-size="{{item.size.id}}">+</button>
+																						</div>
+																					</td>
+
+																					<td class="product-subtotal"
+																						data-title="Subtotal">
+																						<span
+																							class="woocommerce-Price-amount amount">{{item.total_price}}</span>
+																					</td>
+																				</tr>
+
+																				{% endfor%}
+																				<tr>
+																					<td colspan="4" class="actions">
+																						<div class="update-cart">
+																							<a href="{%url 'cart' %}" class="cart_update">Update Cart</a>
+																								
+																						</div> 
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="col-md-4">
+																		<div class="collaterals cart-collaterals">
+																			<div class="cart_totals ">
+
+
+																				<!-- <div class="coupon">
+
+																					<span class="header">
+																						<a href="#">
+																							<svg>
+																								<use
+																									xlink:href="#svg-coupon" />
+																							</svg>
+																							Coupon code </a>
+																					</span>
+																					<div class="form">
+																						<input type="text"
+																							name="coupon_code"
+																							class="input-text"
+																							id="coupon_code" value=""
+																							placeholder="Coupon code" />
+																						<input type="submit"
+																							class="button"
+																							name="apply_coupon"
+																							value="Apply coupon" />
+																					</div>
+
+																				</div> -->
+
+																				<table cellspacing="0"
+																					class="shop_table shop_table_responsive">
+
+
+																					<tr class="cart-subtotal">
+																						<th>Subtotal</th>
+																						<td data-title="Subtotal">
+																							<span
+																								class="woocommerce-Price-amount amount"><span
+																									class="woocommerce-Price-currencySymbol">LE </span>{{cart.cart_price}}</span>
+																						</td>
+																					</tr>
+																					<tr class="cart-subtotal">
+																						<th>Delivery Charge</th>
+																						<td data-title="Subtotal">
+																							<span
+																								class="woocommerce-Price-amount amount"><span
+																									class="woocommerce-Price-currencySymbol">LE </span>50</span>
+																						</td>
+																					</tr>
+
+																					<tr class="order-total">
+																						<th>Total</th>
+																						<td data-title="Total">
+																							<strong><span
+																									class="woocommerce-Price-amount amount"><span
+																										class="woocommerce-Price-currencySymbol">LE </span>{{cart.cart_price|add:50}}</span></strong>
+																						</td>
+																					</tr>
+
+
+																					<tr>
+																						<td class="wc-proceed-to-checkout"
+																							colspan="2">
+
+																							<a href="{%url 'checkout' %}"
+																								class="checkout-button button alt wc-forward">
+																								Checkout</a>
+																						</td>
+																					</tr>
+
+																				</table>
+
+
+
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+															</form>
+
+
+															<div class="row">
+																<div class="col-xs-12">
+																</div>
+															</div>
+														</div>
+														<div class="clear"></div>
+
+													</div>
+
+												</article>
+
+											</section>
+										</div>
+									</div>
+									{% else %}
+									<p class="cart-empty">
+										
+										<img src="{%static 'img/placeholder.svg' %}" alt="" height="250px" width="250px" style="color: #262626;">
+										<br>
+										<div class="woocommerce-notices-wrapper"></div>
+										<p class="cart-empty woocommerce-info">Your cart is currently empty.</p>
+									</p>
+
+									<p class="return-to-shop">
+										<a class="button wc-backward" href="{% url 'shop' %}">
+											Return to shop 
+										</a>
+									</p>
+								</div>
+								{%endif %}
+								<div class="clear"></div>
+
+							</div>
+
+
+
+
+
+
+						</article>
+
+					</section>
+				</div>
+			</div>
+
+		</div>
+
+
+		{% include 'partials/footer.html' %}
+	</div><!-- #wrap -->
+	<div id="ip-quickview"></div>
+</body>
+{% endblock %}

@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block title %} {{category}} {% endblock %}
+{% block content %}
+
+<body
+    class="archive tax-product_cat term-accessories term-26 custom-background theme-kidz woocommerce woocommerce-page woocommerce-no-js sidebar-left header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+    {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        {% include 'partials/main_header.html' %}
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                <div class="container ip-shop-container ">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div id="ip-shop-sidebar">
+                           
+                                <aside id="woocommerce_top_rated_products-3"
+                                    class="widget woocommerce widget_top_rated_products">
+                                    <h2 class="widget-title">Top Rated Products</h2>
+                                    <ul class="product_list_widget">
+                                        {% for item in most_sold %}
+                                        <li>
+
+                                            <a href="/product/{{item.id}}">
+                                                <img width="70" height="70"
+                                                    data-src="{{item.image1.url}}"
+                                                    class="lazyload attachment-thumbnail size-thumbnail" alt=""
+                                                    data-srcset="{{item.image1.url}} 70w,"
+                                                    data-sizes="(max-width: 70px) 100vw, 70px" /> <span
+                                                    class="product-title">{{ item.title}}</span>
+                                            </a>
+
+
+                                            <span class="woocommerce-Price-amount amount"><span
+                                                    class="woocommerce-Price-currencySymbol">LE</span>{{ item.price }}</span>
+                                        </li>
+                                        {% endfor %}
+                                
+
+                                    </ul>
+                                </aside> 
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <header class="woocommerce-products-header main-header ip-shop-header">
+								<h1 class="woocommerce-products-header__title page-title">{{category}}</h1>
+								<div class="products-wrap products-wrap--category">
+									<div class="products products--category">
+                                        {% for s in subcategory %}
+										<div class="product-category product first">
+											<div class="ip-shop-loop-wrap">
+												<a href="/sub/{{s.id}}">
+                                                    
+                                                    <div class="ip-shop-loop-thumb">
+                                                        {% if category.title  == 'Girls' %}
+                                                        <img class="thumb-img" src="{%static 'img/superhero.svg' %}"
+                                                            alt="{{s.title}}" width="70" height="70" />
+                                                        {% elif category.title  == 'Baby' %}
+                                                        <img class="thumb-img" src="{%static 'img/boy.svg' %}"
+                                                            alt="{{s.title}}" width="70" height="70" />
+                                                        {% elif category.title  == 'Adults' %}
+                                                        <img class="thumb-img" src="{%static 'img/couple.svg' %}"
+                                                            alt="{{s.title}}" width="70" height="70" />
+                                                        {% elif category.title == 'Boys' %}
+                                                        <img class="thumb-img" src="{%static 'img/subicon.svg' %}"
+                                                            alt="{{s.title}}" width="70" height="70" />
+                                                        {% else %}
+                                                        <img class="thumb-img" src="{%static 'img/mask.svg' %}"
+                                                            alt="{{s.title}}" width="70" height="70" />
+                                                        {% endif %}
+                                                    </div>
+                                                    
+                                                
+                                                        
+													<div class="ip-shop-loop-details">
+														<h2 class="woocommerce-loop-category__title">
+															{{s.title}} </h2>
+													</div>
+												</a> </div>
+                                        </div>
+                                        {%endfor%}
+										
+									</div>
+								</div>
+								<div class="row grid-header">
+									<div class="col-md-8">
+										<nav class="woocommerce-breadcrumb">
+											<ul>
+												<li>{{category}}</li>
+											</ul>
+										</nav>
+									</div>
+									<div class="col-md-4 col-sm-12 ip-shop-ordering-row">
+										<!-- <form class="woocommerce-ordering" method="get">
+											<select name="orderby" class="orderby styled" aria-label="Shop order">
+												<option value="menu_order" selected='selected'>Default sorting</option>
+												<option value="popularity">Sort by popularity</option>
+												<option value="rating">Sort by average rating</option>
+												<option value="date">Sort by latest</option>
+												<option value="price">Sort by price: low to high</option>
+												<option value="price-desc">Sort by price: high to low</option>
+											</select>
+											<input type="hidden" name="paged" value="1" />
+										</form> -->
+										<a href="#" class="mobile-sidebar">
+											<svg>
+												<use xlink:href="#svg-sidebar" />
+											</svg>
+										</a>
+									</div>
+
+								</div>
+							</header>
+
+                            <div class="woocommerce-notices-wrapper">
+                            </div>
+                            <div class="products-wrap products-wrap--mobile-small">
+                                <div class="products products--layout-boxed-white columns-3 products--mobile-small">
+                                    {% for item in items %}
+                                    <div
+                                        class="product type-product post-94 status-publish first instock product_cat-accessories product_cat-gifts has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                        <div class="ip-shop-loop-wrap">
+                                            <div class="ip-shop-loop-thumb">
+                                                <a href="/product/{{item.id }}">
+                                                    <img src="{{item.image1.url}}" data-src="{{ item.image1.url }}"
+                                                        alt="{{ item.title }}" class="thumb-shop-catalog lazyload "
+                                                        data-sizes="(min-width: 1200px) 210px, (min-width: 992px) 281px, (min-width: 768px) 293px, 
+                                                        (max-width: 600px) and (min-width: 412px) 140px, (max-width: 411px) 
+                                                        and (min-width: 360px) 100px, 360px" />
+                                                </a>
+                                            </div>
+
+                                            <div class="ip-shop-loop-details">
+                                                <h3><a href="/product/{{ item.id }}">{{ item.title }}</a></h3>
+
+                                                <div class="ip-shop-loop-after-title">
+                                                    <div class="ip-shop-loop-price">
+                                                        <span class="price"><span
+                                                                class="woocommerce-Price-amount amount"><span
+                                                                    class="woocommerce-Price-currencySymbol">LE
+                                                                </span>{{item.price}}</span></span>
+                                                    </div>
+                                                    <div class="ip-shop-loop-actions">
+                                                        
+                                                            <a href="" class="cart_add" data-id="{{item.id}}">
+                                                                <img class="svg-add"
+                                                                src="{% static 'img/icons/cart.svg' %}">
+                                                                add to cart 
+                                                            </a>
+
+                                                            <a href="#" class="wishlist-btn ip-wishlist-btn " data-id="{{item.id}}"
+                                                            data-title="Wishlist">
+                                                            <i class="far fa-heart fa-2x" ></i>
+                                                        </a>
+                                                            
+                                                        <span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+        {%include 'partials/footer.html'%}
+    </div><!-- #wrap -->
+    <div id="ip-quickview"></div>
+
+    
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        var baseURL = "{% static 'img/ "
+        $(document).on('load', '.page-title', function(){
+            if ($('.pgae-title').text() == 'Girls'){
+                $('.thumb-img').attr('src', baseURL + 'superhero.svg %}');
+            }   })
+    </script>    -->
+</body>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% for item in most_sold %}
+<div class="product type-product post-57 status-publish first instock product_cat-bottoms product_cat-bottoms-for-babies product_cat-for-babies product_cat-for-boys product_cat-gifts product_cat-sweaters product_cat-sweaters-for-babies product_cat-tops has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+
+
+    <div class="ip-shop-loop-wrap">
+
+        <div class="ip-shop-loop-thumb">
+            <a href="product/french-terry-shawl-collar-cardigan/index.html">
+
+                <img src="{{ item.image1.url }}"
+                    alt="{{ item.title }}"
+                    class="thumb-shop-catalog lazyload front"
+                    data-sizes="(min-width: 1200px) 210px, (min-width: 992px) 241px, (max-width: 600px) and (min-width: 412px) 140px, (max-width: 411px) and (min-width: 360px) 100px, 360px" />
+            </a>
+        </div>
+
+        <div class="ip-shop-loop-details">
+            <h3><a href="product/{{item.id}}">{{ item.title }}</a></h3>
+
+
+            <div class="ip-shop-loop-after-title">
+                <div class="ip-shop-loop-price">
+
+                    <span class="price"><span class="woocommerce-Price-amount amount"><span
+                                class="woocommerce-Price-currencySymbol">&#36;</span>{{item.price}}</span></span>
+                </div>
+                <div class="ip-shop-loop-actions">
+                    <a href="#" class="ip-wishlist-btn ip-wishlist-item-57-btn"
+                        data-product-id="57" data-title="Wishlist"><svg class="on">
+                            <use xlink:href="#svg-wishlist-on" /></svg><svg class="off">
+                            <use xlink:href="#svg-wishlist-off" /></svg></a><a
+                        href="product/french-terry-shawl-collar-cardigan/index.html"
+                        data-title="Quick View" data-product_id="57"
+                        class="ip-quickview-btn product_type_simple"><svg>
+                            <use xlink:href="#svg-quick-view" /></svg></a><a
+                        href="index7547.html?add-to-cart=57" data-quantity="1"
+                        class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                        data-product_id="57" data-product_sku=""
+                        aria-label="Add &ldquo;French terry shawl collar cardigan&rdquo; to your cart"
+                        rel="nofollow"><svg class="svg-add">
+                            <use xlink:href="#svg-cart" /></svg>Add to cart</a><span
+                        class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

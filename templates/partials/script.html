@@ -1,0 +1,169 @@
+{% load static %}
+<script type="text/javascript">
+    var c = document.body.className;
+    c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+    document.body.className = c;
+</script>
+<script type='text/javascript' src='{% static "js/jquery/jquery4a5f.js" %}'></script>
+<!-- <script type='text/javascript'>
+    var ideapark_svg_content = "";
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET.html", "img/sprite.svg", true);
+    ajax.send();
+    ajax.onload = function (e) {
+        ideapark_svg_content = ajax.responseText;
+        ideapark_download_svg_onload();
+    };
+
+    function ideapark_download_svg_onload() {
+        if (typeof document.body != "undefined" && document.body != null && typeof document.body.childNodes !=
+            "undefined" && typeof document.body.childNodes[0] != "undefined") {
+            var div = document.createElement("div");
+            div.className = "svg-sprite-container";
+            div.innerHTML = ideapark_svg_content;
+            document.body.insertBefore(div, document.body.childNodes[0]);
+        } else {
+            setTimeout(ideapark_download_svg_onload, 100);
+        }
+    }
+</script> -->
+<script type='text/javascript' src='{% static "js/jquery/jquery-migrate.min330a.js" %}'></script>
+
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var ip_wishlist_vars = {
+        "cookieName": "ip-wishlist-items",
+        "titleAdd": "Add to Wishlist",
+        "titleRemove": "Remove from Wishlist"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src='{% static "js/frontend.min7ef2.js" %}'>
+</script>
+<script type='text/javascript'
+    src='{% static "js/jquery-blockui/jquery.blockUI.min44fd.js" %}'></script>
+<script type='text/javascript'>
+    /* 
+    var wc_add_to_cart_params = {
+        "ajax_url": "\/kidz\/demo2\/wp-admin\/admin-ajax.php",
+        "wc_ajax_url": "\/kidz\/demo2\/?wc-ajax=%%endpoint%%",
+        "i18n_view_cart": "View cart",
+        "cart_url": "https:\/\/parkofideas.com\/kidz\/demo2\/cart\/",
+        "is_cart": "",
+        "cart_redirect_after_add": "no"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript'
+    src='{% static "js/frontend/add-to-cart.minf39e.js" %}'></script>
+<script type='text/javascript'
+    src='{%static "js/js-cookie/js.cookie.min6b25.js" %}'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var woocommerce_params = {
+        "ajax_url": "\/kidz\/demo2\/wp-admin\/admin-ajax.php",
+        "wc_ajax_url": "\/kidz\/demo2\/?wc-ajax=%%endpoint%%"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript'
+    src='{%static  "js/frontend/woocommerce.minf39e.js" %}'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_cart_fragments_params = {
+        "ajax_url": "\/kidz\/demo2\/wp-admin\/admin-ajax.php",
+        "wc_ajax_url": "\/kidz\/demo2\/?wc-ajax=%%endpoint%%",
+        "cart_hash_key": "wc_cart_hash_64f931c23d077319fc0e7f381869c4e0",
+        "fragment_name": "wc_fragments_64f931c23d077319fc0e7f381869c4e0",
+        "request_timeout": "5000"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript'
+    src='{%static "js/frontend/cart-fragments.minf39e.js" %}'></script>
+<script type='text/javascript' src='{% static "js/underscore.min4511.js" %}'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpUtilSettings = {
+        "ajax": {
+            "url": "\/kidz\/demo2\/wp-admin\/admin-ajax.php"
+        }
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src='{% static "js/wp-util.min9dff.js" %}'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_variation_params = {
+        "wc_ajax_url": "\/kidz\/demo2\/?wc-ajax=%%endpoint%%",
+        "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
+        "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
+        "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination."
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript'
+    src='{% static "js/frontend/add-to-cart-variation.minf39e.js" %}'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var ideapark_wc_add_to_cart_variation_vars = {
+        "in_stock_message": "In stock",
+        "in_stock_svg": "<svg><use xlink:href=\"#svg-check\" \/><\/svg>",
+        "out_of_stock_svg": "<svg><use xlink:href=\"#svg-close\" \/><\/svg>"
+    };
+    /* ]]> */
+</script>
+<!-- <script type='text/javascript'
+    src='{%static "js/woocommerce/add-to-cart-variation-3-fix.minb2d8.js"%}'></script> -->
+<script type='text/javascript'>
+    let rightArrow = '<svg viewBox="0 0 216 348" id="svg-angle-right" fill="inherit" stroke="inherit"><path d="M70.445 335.255a40.815 40.815 0 1 1-57.966-57.446L116.564 174 13.892 70.708a40.815 40.815 0 1 1 57.417-57.965l132.015 131.956c15.929 15.938 15.929 41.769 0 57.706l-132.88 132.85z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>'
+    let leftArrow = '<svg viewBox="0 0 216 348" id="svg-angle-left" fill="inherit" stroke="inherit"><path d="M144.826 335.255a40.815 40.815 0 1 0 57.965-57.446L98.706 174 201.38 70.708a40.815 40.815 0 1 0-57.418-57.965L11.947 144.699c-15.93 15.938-15.93 41.769 0 57.706l132.879 132.85z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>'
+    var ideapark_wp_vars = {
+        "themeDir": "\/usr\/www\/parkofideas.com\/kidz\/demo2\/wp-content\/themes\/kidz",
+        "themeUri": "https:\/\/parkofideas.com\/kidz\/demo2\/wp-content\/themes\/kidz",
+        "ajaxUrl": "https:\/\/parkofideas.com\/kidz\/demo2\/wp-admin\/admin-ajax.php",
+        "searchUrl": "https:\/\/parkofideas.com\/kidz\/demo2\/?s=",
+        "svgUrl": "",
+        "isRtl": "",
+        "lazyload": "1",
+        "searchType": "search-type-1",
+        "shopProductModal": "1",
+        "stickyMenu": "1",
+        "productThumbnails": "left",
+        "viewMore": "View More",
+  /*      "arrowRight":  `<span class=\"normal\"><\/span>`,
+        "arrowLeft": `<span class=\"normal\"><\/span>`,
+        "arrowRightOwl": `<span class=\"normal\"><\/span>`,
+        "arrowleftOwl": `<span class=\"normal\"><\/span>`*/
+     };
+</script>
+
+<!-- <script type='text/javascript'>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            (function (d, w, c) {
+                w.ChatraID = 'zhn2DbkmMmBtn4k9P';
+                var s = d.createElement('script');
+                w[c] = w[c] || function () {
+                    (w[c].q = w[c].q || []).push(arguments);
+                };
+                s.async = true;
+                s.src = '../../../call.chatra.io/chatra.js';
+                if (d.head) d.head.appendChild(s);
+                s.onload = function () {
+                    document.body.insertAdjacentHTML("beforeEnd",
+                        '<a href="#"><img class="ip-message-us" src="{%static 'img/message-us.svg' %}"></a>'
+                        );
+                    var button = document.querySelector(".ip-message-us");
+                    button.onclick = function () {
+                        Chatra('openChat', true);
+                        return false;
+                    };
+                };
+            })(document, window, 'Chatra');
+        }, 5000);
+    })
+</script> -->
+<script type='text/javascript' src='{%static "js/min9d47.js" %}'></script>
+<script type='text/javascript' src='{% static "js/wp-embed.min9dff.js" %}'></script>
+

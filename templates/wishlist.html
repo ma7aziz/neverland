@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block title %} Wishlist {% endblock %}
+{% block content %}
+<style>
+    .wishlist-remove {
+        float: right;
+        color: crimson;
+        opacity: 0;
+    }
+    .product:hover  .wishlist-remove {
+        opacity: 1;
+    }
+</style>
+<body
+    class="page-template-default page page-id-15 custom-background theme-kidz woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on wishlist-page preload">
+    {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        {% include 'partials/main_header.html' %}
+        <header class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Wishlist</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% if messages %}
+
+		<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
+			{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor%}
+		</div>
+		{%  endif %}
+        <div class="container post-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <section role="main" class="post-open">
+                        <article id="post-15" class="post-348 page type-page status-publish hentry">
+                            <div class="shop-content">
+                                <div class="woocommerce">
+                                    <div class="woocommerce-notices-wrapper"></div>
+                                    {%if list %}
+                                    <div class="products-wrap products-wrap--mobile-small">
+                                        <div class="products products--layout-boxed-white columns-3 products--mobile-small">
+                                            {% for item in list %}
+
+                                            <div
+                                                class="product type-product post-65 status-publish first instock product_cat-for-babies product_cat-pajamas-for-babies product_cat-sweaters-for-babies product_cat-for-girls product_cat-activewear-for-girls product_cat-dresses-rompers product_cat-socks-tights product_cat-gifts has-post-thumbnail shipping-taxable purchasable product-type-simple">
+
+                                                <div class="ip-shop-loop-wrap">
+
+                                                    <div class="ip-shop-loop-thumb">
+                                                        <a href="/product/{{item.product.id}}">
+
+                                                            <img src="{{item.product.image1.url}}"
+                                                                data-src="{{item.product.image1.url}}"
+                                                                alt="{{item.product.title}}"
+                                                                class="thumb-shop-catalog lazyload "
+                                                                data-srcset="{{item.product.image1.url}} 210w,"
+                                                                data-sizes="(min-width: 1200px) 210px, (min-width: 992px) 281px, (min-width: 768px) 293px, (max-width: 600px) and (min-width: 412px) 140px, (max-width: 411px) and (min-width: 360px) 100px, 360px)" />
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="ip-shop-loop-details">
+                                                        <h3><a
+                                                                href="/product/{{item.product.id}}">{{item.product.title}}</a>
+                                                        </h3>
+
+
+                                                        <div class="ip-shop-loop-after-title">
+                                                            <div class="ip-shop-loop-price">
+
+                                                                <span class="price"><span
+                                                                        class="woocommerce-Price-amount amount"><span
+                                                                            class="woocommerce-Price-currencySymbol">LE
+                                                                        </span>{{item.product.price}}</span></span>
+                                                            </div>
+                                                            <div class="ip-shop-loop-actions">
+                                                                <a href="/wishlist/remove_wishlist/{{item.id}}" class=" wishlist-remove "
+                                                                data-title="Remove From Wishlist">
+                                                                    <!-- <i class="far fa-heart fa-2x" style=""></i> -->
+                                                                    <p style="color: crimson;">Remove</p>
+                                                                </a>
+
+                                                                <a href="" class="cart_add"
+                                                                    data-id="{{item.product.id}}">
+                                                                    <img class="svg-add"
+                                                                        src="{% static 'img/icons/cart.svg' %}">
+                                                                    add to cart
+                                                                </a>
+
+
+                                                                <span
+                                                                    class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor%}
+
+                                        </div>
+                                    </div>
+
+                                    {% else %}
+
+                                    <div id="ip-wishlist-empty">
+
+                                        <p class="wishlist-empty">
+                                            <img src="{%static 'img/placeholder.svg' %}" height='200px' alt="">
+                                            <br>
+                                            The wishlist is currently empty. </p>
+
+                                        <p class="note">Click the
+                                            <img src="{%static 'img/icons/heart.svg' %}" alt="" width="20px"
+                                                height="20px">
+                                            icons to add products</p>
+
+                                        <p class="return-to-shop">
+                                            <a class="button wc-backward" href="{%url 'shop' %}">
+                                                Return To Shop </a>
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        {% include 'partials/footer.html' %}
+    </div>
+
+    
+    
+</body>
+{% endblock %}

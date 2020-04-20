@@ -1,0 +1,297 @@
+
+{% load static %}
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<title>
+   	NEVERLNDEGY 
+	{% block title %}
+	{% endblock%}
+	</title>
+	<link rel="stylesheet" href="{%static 'lightbox/css/lightbox.css' %}">
+	<link rel='stylesheet' id='photoswipe-css' href='{% static "css/photoswipe/photoswipe.minf39e.css" %} '
+	type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-skin-css' href='{% static "css/photoswipe/default-skin0235.css" %}" '
+	type='text/css' media='all' />
+<link rel='stylesheet' id='slick-slider-css' href='{% static "css/slick00e2.css" %}' type='text/css' media='all' />
+<link rel='stylesheet' id='ideapark-core-css-css' href='{% static "css/min9d47.css" %}' type='text/css'
+	media='all' />
+	<link rel='stylesheet' id='wc-block-style-css' href='{% static "css/stylefc72.css" %}' type='text/css'  />
+	<style id='woocommerce-inline-inline-css' type='text/css'>
+		.woocommerce form .form-row .required {
+			visibility: visible;
+		}
+	</style>
+	<style id='ideapark-core-css-inline-css' type='text/css'>
+		#chatra:not(.chatra--expanded) {
+			visibility: hidden !important;
+			opacity: 0 !important;
+			pointer-events: none;
+		}
+
+		.ip-message-us,
+		.ip-buy-now {
+			position: fixed;
+			z-index: 100001;
+			-webkit-transform: rotate(-90deg);
+			transform: rotate(-90deg);
+			-webkit-transform-origin: right bottom;
+			transform-origin: right bottom;
+		}
+
+		.ip-message-us {
+			right: 10px;
+			bottom: 150px;
+			transition: opacity 0.2s linear
+		}
+
+		.ip-buy-now {
+			right: 10px;
+			bottom: 305px;
+			transition: opacity 0.2s linear
+		}
+
+		.ip-message-us:hover,
+		.ip-buy-now:hover {
+			opacity: 0.8
+		}
+
+		@media (max-width: 470px){
+			#wishlist-nav {
+					display: none;
+				}
+			}
+		
+		@media (max-width: 767px) {
+
+			.ip-message-us,
+			.ip-buy-now {
+				display: none
+			}
+		}
+		.hide-message {
+			display: none;
+		}
+		.hidden {
+			display: none;
+		}
+		.form-showing {
+			display: block;
+			width: 30%;
+			position: fixed;
+			right: 4%;
+			top: 10%;
+			background-color: rgba(255, 255, 255);
+			padding: 20px ;
+			z-index: 990000000000000;
+			padding: 20px ;
+
+		}
+		.form-showing label {
+			color: #394C69;
+		}
+		.close-btn {
+			box-sizing: border-box;
+			display: block;
+			/*padding: 5px 10px ;*/
+			
+
+		background-color: rgb(224, 95, 95);
+		}
+	</style>
+	<link rel="preload"
+		href="https://fonts.googleapis.com/css?family=Fredoka+One%3Aregular%7CMontserrat%3A500%2C700%2C800%7COpen+Sans%3Aregular%2C700%26subset%3Dlatin%2Clatin-ext"
+		as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Fredoka+One%3Aregular%7CMontserrat%3A500%2C700%2C800%7COpen+Sans%3Aregular%2C700%26subset%3Dlatin%2Clatin-ext">
+	</noscript>
+	<noscript>
+		<style>
+			.woocommerce-product-gallery {
+				opacity: 1 !important;
+			}
+		</style>
+	</noscript>
+	<style type="text/css">
+		.recentcomments a {
+			display: inline !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+	</style>
+	<style type="text/css" id="custom-background-css">
+		body.custom-background {
+			background-color: #6ecded;
+			background-image: url("{% static 'img/clothes-2049536750.jpg' %}");
+			background-position: left top;
+			background-size: auto;
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+		}
+	</style>
+	<link rel="icon" href="img/clothes-cropped-k-53x53.png" sizes="32x32" />
+	<link rel="icon" href="img/clothes-cropped-k-210x210.png" sizes="192x192" />
+	<link rel="apple-touch-icon-precomposed" href="img/clothes-cropped-k-210x210.png" />
+	<meta name="msapplication-TileImage"
+		content="https://parkofideas.com/kidz/demo2/wp-content/uploads/2016/10/clothes-cropped-k-360x360.png" />
+</head>
+
+{% include 'partials/popup.html' %}
+{% block content %} 
+{% endblock %}
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script src="{%static 'lightbox/js/lightbox.js' %}"></script>
+    <!-- add to cart  or add cart quantity-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.cart_add').on('click', function(e){
+                e.preventDefault()
+				product_id = $(this).attr('data-id')
+				size = $(this).attr('data-size')
+                console.log(product_id)
+                data = {
+					product_id: product_id,
+					size : size 
+					
+                }
+    
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_cart" %}',
+                    data: data,
+                    success: function(data){
+                        let cartCount = $('#cart_count')
+						cartCount.text(data.cart_count)
+						let msg = $('.woocommerce-message p')
+						
+						msg.text(data.message)
+						
+                
+                       
+                    }
+                })
+            })
+        });
+    </script>   
+    <!-- minus cart item quantity  -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.minus_qty').on('click', function(e){
+                e.preventDefault()
+                product_id = $(this).attr('data-id')
+                console.log(product_id)
+                data = {
+                    product_id: product_id
+                }
+    
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "minus_cart" %}',
+                    data: data,
+                    success: function(data){
+                       /* let cartCount = $('#cart_count')*/
+                        cartCount.text(data.message) 
+                        console.log('success')
+                       
+                    }
+                })
+            })
+        });
+    </script>    
+    <!-- add to wishlist -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.wishlist-btn').on('click', function(e){
+                e.preventDefault()
+                product_id = $(this).attr('data-id')
+                data = {
+                    product_id: product_id
+                }
+    
+                $.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_wishlist" %}',
+                    data: data,
+                    success: function(data){
+                       console.log(data)
+                
+                       
+                    },
+                    error : function(){
+                        console.log('faild')
+                    }
+                    
+                })
+            })
+        });
+	</script>    
+	<script>
+		setTimeout(function() {
+			$('.woocommerce-message').fadeOut('fast');
+		}, 3000);
+		
+	</script>
+	<script>
+		let button = document.getElementById('form-pop')
+		let form = document.getElementById('popup-form')
+		let closeBtn = document.getElementById('close-btn')
+		button.addEventListener('click', (e)=> {
+			e.preventDefault()
+			form.classList.toggle('hidden') 
+			form.classList.add('form-showing')
+		})
+
+		document.addEventListener('keyup', (e)=>{
+			if (e.keyCode === 27){
+				form.classList.add('hidden')
+			}
+		
+		})	
+		
+		closeBtn.addEventListener('click', ()=> {
+			form.classList.add('hidden')
+		})
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.qty-cart').on('keyup', function(e){
+				]
+
+				product_id = $(this).attr('data-id')
+				qty = this.value
+				size = $(this).attr('data-size')
+			
+                data = {
+					product_id: product_id, 
+					quantity : qty,
+					size : size
+				}
+
+				$.ajax({
+                    type: 'GET',
+                    url: '{% url "add_to_cart" %}',
+                    data: data,
+                    success: function(data){
+						console.log('success')
+                        let cartCount = $('#cart_count')
+						cartCount.text(data.cart_count)
+						let msg = $('.woocommerce-message p')
+						
+						msg.text(data.message)
+						
+                    }
+                })
+			})
+		})
+	</script>
+
+{% include './partials/script.html' %}
+</html>

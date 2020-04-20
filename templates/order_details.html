@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+{% block content %}
+
+<body
+    class="page-template-defaultpage-template-default page page-id-7  theme-kidz woocommerce-checkout woocommerce-page woocommerce-order-received woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+
+    <a href="{%url 'orders' %}"><i class="fas fa-arrow-circle-left fa-2x"></i> All Orders </a>
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        <div class="container post-container">
+            <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+
+                <li class="woocommerce-order-overview__order order">
+                    Order number: <strong>{{order.id}}</strong>
+                </li>
+
+                <li class="woocommerce-order-overview__date date">
+                    Date: <strong>{{order.timestamp.date}} </strong>
+                    {{order.timestamp.time}}
+                </li>
+
+
+                <li class="woocommerce-order-overview__total total">
+                    Total: <strong><span class="woocommerce-Price-amount amount"><span
+                                class="woocommerce-Price-currencySymbol">LE </span>{{order.total_price}}</span></strong>
+                </li>
+
+                <li class="woocommerce-order-overview__payment-method method">
+                    customer: <strong>{{order.customer}}</strong>
+                </li>
+            </ul>
+
+            <div class="clear"></div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="woocommerce-thankyou-order-wrap">
+                        <section class="woocommerce-order-details">
+        
+                            <h2 class="woocommerce-order-details__title">Order details</h2>
+        
+                            <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+        
+                                <thead>
+                                    <tr>
+                                        <th class="woocommerce-table__product-name product-name">
+                                            Product</th>
+                                        <th class="woocommerce-table__product-table product-total">
+                                            SIze</th>
+                                      
+                                        <th class="woocommerce-table__product-table product-total">
+                                            Total</th>
+                                    </tr>
+                                </thead>
+        
+                                <tbody>
+                                    {%for  item in order.items.cart_item_set.all %}
+                                    <tr class="woocommerce-table__line-item order_item">
+        
+                                        <td class="woocommerce-table__product-name product-name">
+                                            <a href="/product/{{item.item.id}}">{{item.item.title}}</a> <strong
+                                                class="product-quantity" style="color: #FF5B4B; font-size: 1.3em">&times;&nbsp;{{ item.qty}}</strong>
+                                        </td>
+                                        <td class="woocommerce-table__product-name product-name">
+                                            <a href="#">{{item.size.name}}</a> 
+                                        </td>
+                                        
+        
+                                        <td class="woocommerce-table__product-total product-total">
+                                            <span class="woocommerce-Price-amount amount"><span
+                                                    class="woocommerce-Price-currencySymbol">LE
+                                                </span>{{item.total_price}}</span>
+                                        </td>
+        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+        
+                               
+                            </table>
+        
+                        </section>
+                        <br> <br>
+                        {% if order.order_comments%}
+                        <div class="order_comment">
+                            <strong>Notes: </strong>
+                            <p  style="color: #FF5B4B; font-size: 1.2em">{{order.order_comments}}</p>
+                        </div>  
+                        {%endif%}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="woocommerce-thankyou-order-wrap">
+                        <section class="woocommerce-order-details">
+                    <h2 class="woocommerce-order-details__title">Customer Details </h2>
+                    <strong>Name</strong> <p>{{order.customer}}</p> <br>
+                    <strong>Email</strong><p>{{order.customer.email}}</p>
+                    <strong>Phone</strong><p>{{order.customer.phone}}</p>
+                    <strong>Address</strong><p>{{order.customer.address}}, {{order.customer.city}} , {{order.customer.governrate}}</p>
+                        
+                    </section></div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+{% endblock%}

@@ -1,0 +1,122 @@
+{%extends 'base.html' %}
+{% block content %}
+
+<body
+    class="page-template-default page page-id-7 custom-background theme-kidz woocommerce-checkout woocommerce-page woocommerce-order-received woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+    {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        {%include 'partials/main_header.html' %}
+        <div class="container post-container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <section role="main" class="post-open">
+                        <article id="post-7" class="post-7 page type-page status-publish hentry">
+                            <div class="shop-content">
+
+                                <div class="woocommerce">
+                                    <div class="woocommerce-order">
+
+
+
+                                        <p
+                                            class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
+                                            <svg viewBox="0 0 117 127" id="svg-placeholder" fill="inherit" stroke="inherit"><path d="M94.056 29.856h18.401s4.454 0 4.454 4.904c0 0 .16 81.713 0 86.253-.161 4.54-4.097 5.987-4.097 5.987H28.697l-.067-.002H3.997s-3.89 0-3.89-3.352c0-3.353-.167-56.156-.084-60.214s3.047-4.058 3.047-4.058h20.689c-.015-12.158-.015-21.758.02-23.688.102-5.83 3.77-5.83 3.77-5.83h19.28C46.952 24.2 48.695 0 69.523 0 90.9 0 93.717 25.15 94.056 29.856zm-8.045 0h-31.37c-.005-3.178.554-22.725 14.882-22.827 13.787-.098 16.13 18.51 16.488 22.827zm-10.72 90.927h32.33s3.437-1.264 3.578-5.228c.14-3.963 0-75.31 0-75.31 0-4.282-3.889-4.282-3.889-4.282H33.174s-3.203 0-3.292 5.09c-.028 1.558-.03 8.841-.02 18.32h41.802s3.598 0 3.598 3.414c0 0 .108 47.193.029 57.996zM5.63 68.96c.071-3.3 2.579-3.3 2.579-3.3h58.039s3.044 0 3.044 2.776c0 0 .11 46.244 0 48.813-.11 2.569-2.8 3.388-2.8 3.388H8.994s-3.292 0-3.292-2.726c0-2.725-.14-45.652-.07-48.951zm45.26-13.997a5.428 5.428 0 1 0 0-10.857 5.428 5.428 0 0 0 0 10.857zm38 0a5.428 5.428 0 1 0 0-10.857 5.428 5.428 0 0 0 0 10.857zM19.14 76.677s-.658 21.035 16.877 21.035c17.536 0 18.274-18.635 18.274-20.723 0-5.475-6.979-5.929-6.979-.1 0 5.4-1.964 14.441-11.295 14.441-9.33 0-10.052-12.633-10.052-14.104 0-5.549-6.824-5.624-6.824-.55z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+                                            <br>
+                                            <svg viewBox="0 0 29 21" id="svg-check-light" fill="inherit" stroke="inherit"><path d="M10.385 15.512L4.059 9.187a2.034 2.034 0 0 0-2.867.005 2.022 2.022 0 0 0-.005 2.867l7.745 7.746a2.034 2.034 0 0 0 2.863-.002c.097-.068.19-.145.276-.232l15.5-15.5a2.03 2.03 0 1 0-2.873-2.873L10.385 15.513z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+                                            <br>
+                                            Thank you. Your order has been received. </p>
+
+                                        <ul
+                                            class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+
+                                            <li class="woocommerce-order-overview__order order">
+                                                Order number: <strong>{{order.id}}</strong>
+                                            </li>
+
+                                            <li class="woocommerce-order-overview__date date">
+                                                Date: <strong>{{order.timestamp.date}}</strong>
+                                            </li>
+
+
+                                            <li class="woocommerce-order-overview__total total">
+                                                Total: <strong><span class="woocommerce-Price-amount amount"><span
+                                                            class="woocommerce-Price-currencySymbol">LE</span>{{order.total_price}}</span></strong>
+                                            </li>
+
+                                            
+                                        </ul>
+                                        <div class="clear"></div>
+
+
+                                        <div class="woocommerce-thankyou-order-wrap">
+                                            <section class="woocommerce-order-details">
+
+                                                <h2 class="woocommerce-order-details__title">Order details</h2>
+
+                                                <table
+                                                    class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="woocommerce-table__product-name product-name">
+                                                                Product</th>
+                                                            <th class="woocommerce-table__product-table product-total">
+                                                                Total</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        {%for  item in order.items.cart_item_set.all %}
+                                                        <tr class="woocommerce-table__line-item order_item">
+
+                                                            <td class="woocommerce-table__product-name product-name">
+                                                                <a href="/product/{{item.item.id}}">{{item.item.title}}</a>  <strong
+                                                                    class="product-quantity">&times;&nbsp;{{item.qty}}</strong>
+                                                            </td>
+
+                                                            <td class="woocommerce-table__product-total product-total">
+                                                                <span class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">LE </span>{{item.total_price}}</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        {%endfor %}
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        
+                                                        
+                                                        <tr>
+                                                            <th scope="row">Total:</th>
+                                                            <td><span class="woocommerce-Price-amount amount"><span
+                                                                        class="woocommerce-Price-currencySymbol">LE </span>{{order.total_price }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                            </section>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                            </div>
+
+
+                        </article>
+
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        {% include 'partials/footer.html' %}
+        </div>
+
+</body>
+{% endblock %}

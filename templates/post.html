@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block title%} News {% endblock%}
+<style>
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transform-origin: center center;
+    }
+
+  
+</style>
+{% block content %}
+
+<body class="post-template-default single single-post postid-179 single-format-standard custom-background theme-kidz woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+    {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+        {%include 'partials/main_header.html' %}
+        <header class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <h1>{{post.title}}</h1>
+                        <div class="post-meta">
+                            <span class="post-date">
+                                {{post.timestamp.date}} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container post-container">
+            {% if post.photo_1 or post.photo_2 or post.photo_3%} 
+            <div class="carousel-post">
+                <div>
+
+                    <img src="{{post.photo_main.url}}" alt="" width="100%" height="auto">
+                </div>
+                {% if post.photo_1%}
+                <div>
+
+                    <img src="{{post.photo_1.url}}" alt="" width="100%" height="auto">
+                </div>
+                {% endif %}
+                {% if post.photo_2%}
+                <div>
+
+                    <img src="{{post.photo_2.url}}" alt="" width="100%" height="auto">
+                </div>
+                {% endif %}
+                <div>
+
+
+                    {% if post.photo_3%}
+                    <img src="{{post.photo_3.url}}" alt="" width="100%" height="auto">
+                </div>
+                {% endif %}
+                <div>
+                    {% if post.photo_4%}
+                    <img src="{{post.photo_4.url}}" alt="" width="100%" height="auto">
+                </div>
+                {% endif %}
+
+                {% if post.photo_5%}
+                <div>
+
+                    <img src="{{post.photo_5.url}}" alt="" width="100%" height="auto">
+                </div>
+
+                {% endif %}
+
+                {% if post.photo_6%}
+                <div>
+
+                    <img src="{{post.photo_6.url}}" alt="" width="100%" height="auto">
+                </div>
+
+                {% endif %}
+            </div>
+            {% else %}
+
+            <div>
+                <img src="{{post.photo_main.url}}" alt="" width="100%" height="auto">
+            </div>
+            {% endif %}
+            <div class="">
+                <p>
+                    {{ post.content }}
+                </p>
+            </div>
+        </div>
+
+    
+    
+        {%include 'partials/footer.html' %}
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+      function sliderInit(){
+        $('.carousel-post').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: true,
+            prevArrow: '',
+            nextArrow: '',
+            cssEase: 'ease',
+            easing: 'swing'
+
+        })
+      }
+      sliderInit();
+       
+    </script>
+</body>
+{%endblock %}

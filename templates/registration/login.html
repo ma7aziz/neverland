@@ -1,0 +1,188 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+
+<body
+    class="page-template-default page page-id-8 custom-background theme-kidz woocommerce-account woocommerce-page woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+   {%include 'partials/main_header.html' %}
+        
+		{% if messages %}
+		<div class="woocommerce-notices-wrapper">
+			<div class="woocommerce-message" role="alert" >
+				{% for message in messages %}
+				<p style="text-align: center;">{{message}}</p>
+				{% endfor%}
+			</div>
+            {% endif %}
+       
+            {% if form.errors %}
+            <div class="woocommerce-notices-wrapper">
+                <div class="woocommerce-message" role="alert" >
+              
+                    <p style="text-align: center; color:crimson"> Invalid Login Data, Please try again !</p>
+                    
+                </div>
+                {% endif %}
+        <div class="container post-container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <section role="main" class="post-open">
+                        <article id="post-8" class="post-8 page type-page status-publish hentry">
+                            <div class="shop-content">
+
+                                <div class="woocommerce">
+                                    <div class="woocommerce-notices-wrapper"></div>
+                                    <div id="customer_login">
+
+                                        <h1>
+                                            <a href="#" class="tab-header active" data-tab-class="login-wrap">Login</a>
+                                            /
+                                            <a href="{%url 'signup' %}" class="tab-header"
+                                                data-tab-class="register-wrap">Register</a>
+                                        </h1>
+
+                                        <ul class="wrap">
+                                            <li class="login-wrap active">
+
+                                                <form class="woocommerce-form woocommerce-form-login login"
+                                                    action="{% url 'login' %}" method="post">
+
+                                                    {% csrf_token %}
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="username">Username <span
+                                                                class="required">*</span></label>
+                                                        <input type="text"
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            name="username" id="username" autocomplete="username"
+                                                            value="" />
+                                                    </p>
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="password">Password <span
+                                                                class="required">*</span></label>
+                                                        <input
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            type="password" name="password" id="password"
+                                                            autocomplete="current-password" />
+                                                    </p>
+
+
+                                                    <p class="form-row">
+                                                        <input type="hidden" id="woocommerce-login-nonce"
+                                                            name="woocommerce-login-nonce" value="7777658e4e" /><input
+                                                            type="hidden" name="_wp_http_referer"
+                                                            value="/kidz/demo2/my-account/" /> <label
+                                                            class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+                                                            <input
+                                                                class="woocommerce-form__input woocommerce-form__input-checkbox"
+                                                                name="rememberme" type="checkbox" id="rememberme"
+                                                                value="forever" /><i></i> Remember me </label>
+                                                        <button type="submit" class="woocommerce-Button button"
+                                                            name="login" value="Login">Login</button>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p class="woocommerce-LostPassword lost_password">
+                                                        <a href="lost-password/index.html">Lost your password?</a>
+                                                    </p>
+
+
+                                                </form>
+                                            </li>
+
+                                            <!-- signup form  -->
+                                            <li class="register-wrap">
+
+
+                                                <form method="post" action="{% url 'signup' %}"
+                                                    class="woocommerce-form woocommerce-form-register register">
+
+
+                                                    {% csrf_token %}
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="reg_email">Email address&nbsp;<span
+                                                                class="required">*</span></label>
+                                                        <input type="email"
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            name="email" id="reg_email" autocomplete="email" value="" />
+                                                    </p>
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="reg_email">Username&nbsp;<span
+                                                                class="required">*</span></label>
+                                                        <input type="text"
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            name="username" id="reg_email" />
+                                                    </p>
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="reg_email">Password&nbsp;<span
+                                                                class="required">*</span></label>
+                                                        <input type="password"
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            name="password1" id="reg_email" autocomplete="email"
+                                                            value="" />
+                                                    </p>
+                                                    <p
+                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                        <label for="reg_email">confirm password&nbsp;<span
+                                                                class="required">*</span></label>
+                                                        <input type="password"
+                                                            class="woocommerce-Input woocommerce-Input--text input-text"
+                                                            name="password2" />
+                                                    </p>
+
+
+
+
+
+
+                                                    <p class="woocommerce-FormRow form-row">
+                                                        <input type="hidden" id="woocommerce-register-nonce"
+                                                            name="woocommerce-register-nonce"
+                                                            value="6f35f38bca" /><input type="hidden"
+                                                            name="_wp_http_referer" value="/kidz/demo2/my-account/" />
+                                                        <button type="submit" class="woocommerce-Button button"
+                                                            name="register" value="Register">Register</button>
+                                                    </p>
+
+
+                                                </form>
+
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </article>
+
+                    </section>
+                </div>
+            </div>
+
+        </div>
+
+
+        {% include 'partials/footer.html' %}
+    </div><!-- #wrap -->
+    <div id="ip-quickview"></div>
+</body>
+
+
+
+{% endblock%}

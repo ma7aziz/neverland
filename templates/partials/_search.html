@@ -1,0 +1,25 @@
+<div id="ajax-search" class="search-type-1 hidden">
+    <div class="container ajax-search-container">
+        <div class="ajax-search-tip">What you are looking for?</div>
+
+        <form role="search" method="get" action="{% url 'search' %}">
+            <input id="ajax-search-input" autocomplete="off" type="text" name="keyword" placeholder="search products..."
+                value="" />
+                <a id="search-close" href="#">
+                    <svg viewBox="0 0 13 13" id="svg-close" fill="inherit" stroke="inherit"><path d="M2.19.326A1.671 1.671 0 0 0 .568 3.122L4.21 6.763v-.708L.568 9.696a1.671 1.671 0 1 0 2.366 2.362l3.64-3.638h-.707l3.642 3.642a1.68 1.68 0 0 0 2.366.006 1.674 1.674 0 0 0-.002-2.372l-3.641-3.64v.707l3.643-3.643A1.68 1.68 0 0 0 11.88.755a1.674 1.674 0 0 0-2.37.002l-3.642 3.64h.706L2.931.756a1.674 1.674 0 0 0-.74-.431z" stroke="none"></path></svg>
+            </a>
+            <button type="submit" class="search">
+                <svg>
+                    <use xlink:href="#svg-search" />
+                </svg>
+            </button>
+        </form>
+        
+    </div>
+</div>
+<!-- <div id="ajax-search-result" class="search-type-1 loading">
+    <div class="container ajax-search-result-container js-ajax-search-result"></div>
+</div>
+ <div class="search-shadow search-type-1 hidden">
+    <span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+</div> -->

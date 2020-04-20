@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} News {% endblock %}
+{% block content %}
+<!-- <style>
+    .main-menu .container {
+        height: 30%;
+    }
+</style> -->
+<body class=" blog archive theme-kidz woocommerce-no-js   custom-background sidebar-right header-type-1 sticky-type-1 layout-fullscreen fullwidth-slider mega-menu woocommerce-on preload">
+    <!-- <body class=" archive tax-product_cat term-accessories term-26 custom-background theme-kidz woocommerce woocommerce-page woocommerce-no-js sidebar-left"> -->
+        
+    
+        {%include 'partials/_search.html' %}
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+    {% include 'partials/main_header.html' %}
+        <header class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h1>Our News</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container blog-container archive">
+            <div class="row">
+                <div class="main-col col-md-9">
+                    <section role="main">
+                        <div class="grid masonry">
+                            {% for post in posts%}
+                            <article id=""
+                                class="post-80 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+
+                                <div class="post-img">
+                                    <a
+                                        href="news/{{post.id}}"> <img
+                                            width="250px" height="200px"
+                                            src="{{post.photo_main.url}}"
+                                            class="attachment-medium size-medium wp-post-image" alt=""
+                                            srcset="{{post.photo_main.url}} 360w"
+                                            sizes="(max-width: 360px) 100vw, 360px" /> </a>
+                                </div>
+
+                                <header class="post-header">
+                                    <h2><a
+                                            href="news/{{post.id}}">
+                                            {{post.title}}</a></h2>
+                                    <div class="post-meta">
+                                        <span class="post-date">
+                                            {{post.timestamp.date}} </span>
+                                        
+                                    </div>
+                                </header>
+
+                                <div class="post-except">
+                                    <p>{{post.content| truncatechars:70 }} <a href="news/{{post.id}}" style="color: #7BC9E4;">Read more</a>
+                                    </p> 
+                                </div>
+
+                            </article>
+                            {%endfor %}
+     
+                           
+                            <div class="post-sizer"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <aside id="sidebar">
+                        <aside id="woocommerce_products-2" class="widget woocommerce widget_products">
+                            <h2 class="widget-title">Featured</h2>
+                            <ul class="product_list_widget">
+                                {% for item in  featured %}
+                                <li>
+
+                                    <a href="/product/{{item.id}}">
+                                        <img width="70" height="70"
+                                            data-src="{{item.image1.url}}"
+                                            class="lazyload attachment-thumbnail size-thumbnail" alt=""
+                                            data-srcset="{{item.image1.url}} 70w, "
+                                            data-sizes="(max-width: 70px) 100vw, 70px" /> <span
+                                            class="product-title">{{item.title}}</span>
+                                    </a>
+
+
+                                    <span class="woocommerce-Price-amount amount"><span
+                                            class="woocommerce-Price-currencySymbol">LE</span>{{item.price}}</span>
+                                </li>
+                                {%endfor %}
+                             
+                            </ul>
+                        </aside>
+                        <aside id="woocommerce_top_rated_products-2"
+                            class="widget woocommerce widget_top_rated_products">
+                            <h2 class="widget-title">Top Rated Products</h2>
+                            <ul class="product_list_widget">
+                                {% for item in most_sold %}
+                                <li>
+
+                                    <a href="/product/{{item.id}}">
+                                        <img width="70" height="70"
+                                            data-src="{{item.image1.url}}"
+                                            class="lazyload attachment-thumbnail size-thumbnail" alt=""
+                                            data-srcset="{{item.image1.url}} 70w,"
+                                            data-sizes="(max-width: 70px) 100vw, 70px" /> <span
+                                            class="product-title">{{ item.title}}</span>
+                                    </a>
+
+
+                                    <span class="woocommerce-Price-amount amount"><span
+                                            class="woocommerce-Price-currencySymbol">LE</span>{{ item.price }}</span>
+                                </li>
+                                {% endfor %}
+                        
+
+                               
+                            </ul>
+                        </aside>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+
+        {% include 'partials/footer.html' %}
+    </div>
+
+</body>
+
+{% endblock%}

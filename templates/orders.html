@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    td , th {
+        padding:10px 40px;
+        text-align: left;
+    }
+</style>
+<body class="page-template-defaultpage-template-default page page-id-7  theme-kidz woocommerce-checkout woocommerce-page woocommerce-order-received woocommerce-no-js sidebar-right header-type-1 sticky-type-1 layout-boxed-white fixed-slider  woocommerce-on preload">
+    
+    <div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
+    <div class="container post-container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Orders</h1>
+            </div>
+        </div>
+        <table>
+
+       
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Customer</th>
+                <th>Total Price </th>
+                <th>Time </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in page_obj %}
+            <tr>
+            
+            
+                <td><a href="/order/{{order.id}}" style="color: #ff5b4b; font-weight:bold">{{order.id}}</a></td>
+                <td>{{order.customer}}</td>
+                <td>{{order.total_price}}</td>
+                <td>{{order.timestamp}}</td> 
+            </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+        
+
+
+<nav class="woocommerce-pagination">
+
+    <ul class="page-numbers">
+        {% if page_obj.has_previous %}
+  
+        <li><a class="prev page-numbers" href="?page={{page_obj.previous_page_number}}">&larr;</a></li>
+        {% else %}
+        <li><a class="prev page-numbers" href="#"></a></li>
+    
+        {% endif %}
+       
+        {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+            <li class="active"><span class="page-numbers current">{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {%if page_obj.has_next%}
+        
+        <li><a class="next page-numbers" href="?page={{page_obj.next_page_number}}">&rarr;</a></li>
+        {%endif %}
+    </ul>
+</nav></div> 
+</div>
+</body>
+{% endblock %}

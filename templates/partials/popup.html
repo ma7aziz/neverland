@@ -1,0 +1,35 @@
+{% load static %}
+<a href="" class="ip-message-us" id="form-pop">
+    <img src="{%static 'img/message-us.svg' %}" alt="">
+</a>
+
+<div id="popup-form" class="form popup-form hidden">
+    <button class="close-btn" id="close-btn">X</button>
+    <form action="{%url 'contact' %}" method="post" class="wpcf7-form" novalidate="novalidate">
+        <div style="display: none;">
+            <input type="hidden" name="_wpcf7" value="6" />
+            <input type="hidden" name="_wpcf7_version" value="5.1.7" />
+            <input type="hidden" name="_wpcf7_locale" value="en_US" />
+            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6-o1" />
+            <input type="hidden" name="_wpcf7_container_post" value="0" />
+        </div>
+        <p><label> Your Name (required)<br />
+                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="name" value="" size="40"
+                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                        aria-invalid="false" required /></span> </label></p>
+        <p><label> Your Email (required)<br />
+                <span class="wpcf7-form-control-wrap your-email"><input type="email" name="email" value="" size="40"
+                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                        aria-required="true" aria-invalid="false" /></span> </label></p>
+        <p><label> Your Phone (required)<br />
+                <span class="wpcf7-form-control-wrap your-email"><input type="email" name="phone" value="" size="40"
+                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                        aria-required="true" aria-invalid="false" required/></span> </label></p>
+        {% csrf_token %}
+        <p><label> Your Message<br />
+                <span class="wpcf7-form-control-wrap your-message"><textarea name="message" cols="30" rows="5"
+                        class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label></p>
+        <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" required /></p>
+        <div class="wpcf7-response-output wpcf7-display-none"></div>
+    </form>
+</div>
