@@ -7,13 +7,13 @@
 	{%include 'partials/_search.html' %}
 	<div id="wrap" class="search-type-1 wrap--boxed wrap--boxed-white">
 		{% include 'partials/main_header.html' %}
-{% if messages %}
-<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
-	{% for message in messages %}
-	<p>{{message}}</p>
-	{% endfor%}
-</div>
-{%  endif %}
+		{% if messages %}
+		<div class="woocommerce-message" role="alert" style="text-align: center; padding: 5px 0">
+			{% for message in messages %}
+			<p>{{message}}</p>
+			{% endfor%}
+		</div>
+		{%  endif %}
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 				<div class="container ip-shop-container ">
@@ -140,7 +140,7 @@
 														data-src="{{item.image1.url}}"
 														alt="{{item.title}}"
 														class="thumb-shop-catalog lazyload "
-														style="object-fit: contain; height:100%" />
+														style="height:100%" />
 												</a>
 											</div>
 

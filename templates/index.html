@@ -84,154 +84,6 @@
 			-->
 		</section>
 
-
-		<section id="home-review">
-			<div class="container">
-				<div class="slick-review h-carousel h-carousel--flex h-carousel--wide-arrows ">
-					<div class="review">
-						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
-						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
-					
-						<div class="author">Ayman Galal</div>
-						<div class="occupation">
-							CEO & Founder </div>
-					</div>
-					<div class="review">
-						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
-						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
-					
-					
-						<div class="author">Ayman Galal</div>
-						<div class="occupation">
-							CEO & Founder </div>
-					</div>
-					<div class="review">
-						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
-						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
-						
-					
-						<div class="author">Ayman Galal</div>
-						<div class="occupation">
-							CEO & Founder </div>
-					</div>
-					
-				
-				</div>
-			</div>
-		</section>
-
-		<section id="home-post">
-			<div class="container">
-				<div class="home-post-header-wrap">
-					<a href="{% url 'news' %}">
-						<h2>News </h2>
-					</a>
-				</div>
-				<div class="row">
-					{%for post in recent_posts%}
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<article id="bottom-post-179"
-							class="post-179 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-
-							<div class="lazyload post-img" data-bgset="{{post.photo_main.url}}"></div>
-
-
-							<div class="post-content">
-								<div class="post-meta">
-									<span class="post-date">
-										{{post.timestamp.date}} </span>
-								</div>
-								<header class="post-header">
-									<a href="/news/news/{{post.id}}">
-										<h3>{{post.title}}</h3>
-									</a>
-								</header>
-								<span class="more">Read More</span>
-							</div>
-							<a href="/news/news/{{post.id}}" class="whole"></a>
-						</article>
-					</div>
-					{% endfor %}
-
-				</div>
-			</div>
-		</section>
-
-		<section id="home-brand" style="background-color: #F4F8FF">
-			<div class="container">
-				<div class="list list--7 h-carousel h-carousel--wide-arrows " id="brands-carousel">
-
-					<div class="lazyload brand" title="Brand 1"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-									
-				
-
-					<div class="lazyload brand" title="Brand 2"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-
-
-					<div class="lazyload brand" title="Brand 3"
-						data-bgset= "{%static 'img/neverland-logo.png' %}">
-					</div>
-					<div class="lazyload brand" title="Brand 4"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-									
-				
-
-					<div class="lazyload brand" title="Brand 5"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-
-
-					<div class="lazyload brand" title="Brand 6"
-						data-bgset= "{%static 'img/neverland-logo.png' %}">
-					</div>
-					<div class="lazyload brand" title="Brand 5"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-
-
-					<div class="lazyload brand" title="Brand 6"
-						data-bgset= "{%static 'img/neverland-logo.png' %}">
-					</div>
-					<div class="lazyload brand" title="Brand 5"
-						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
-
-
-					<div class="lazyload brand" title="Brand 6"
-						data-bgset= "{%static 'img/neverland-logo.png' %}">
-					</div>
-
-		
-				</div>
-			</div>
-		</section>
-
-		<section id="home-text" style="background: #31ACD8 ; color: #fff">
-			<div class="container">
-				<h1 style="border-bottom: 3px solid #fff;">Neverland Egypt</h1> 
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="entry-content">
-							<div class="clear"></div>
-							<div class="two-col">
-								<div class="left">
-									<!-- <img src="https://images.unsplash.com/photo-1532493943049-c89000707a39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
-										alt=""> -->
-
-								</div>
-								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
-									<div>Neverland hosts a large collection of supposedly
-										scary but actually funny outfits for kids aged between three to fourteen years, <br>
-										as well as a rather limited collection of adult costumes. <br> Additionally, the shop
-										also offers cute accessories to match your costume. </div>
-								</div>
-							</div>
-							<div class="clear"></div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<div id="home-tabs" class="c-home-tabs c-home-tabs--padding-top c-home-tabs--padding-bottom">
 			<div class="container home-tabs-wrap">
 				<ul class="home-tabs clear">
@@ -427,6 +279,153 @@
 				</div>
 			</div>
 		</div>
+		<section id="home-review">
+			<div class="container">
+				<div class="slick-review h-carousel h-carousel--flex h-carousel--wide-arrows review-carousel ">
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+						<div class="thumb lazyload" data-bg="https://parkofideas.com/kidz/demo2/wp-content/uploads/2016/10/clothes-untitled-6-2016-09-01-11-41-43-70x70.png"></div>
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+					
+						<div class="thumb lazyload" data-bg="https://parkofideas.com/kidz/demo2/wp-content/uploads/2016/10/clothes-untitled-6-2016-09-01-11-41-43-70x70.png"></div>
+
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					<div class="review">
+						<svg class="quote" viewBox="0 0 32 25" id="svg-quote" fill="inherit" stroke="inherit"><path d="M14.633 17.347c0 2.177-.72 3.997-2.16 5.46C11.033 24.268 9.33 25 7.366 25c-1.964 0-3.683-.731-5.156-2.194C.737 21.344 0 19.592 0 17.551c0-2.04.884-4.524 2.652-7.449L8.544 0h5.696l-3.633 10.612c2.684 1.293 4.026 3.538 4.026 6.735zm17.367 0c0 2.177-.72 3.997-2.16 5.46C28.398 24.268 26.696 25 24.731 25c-1.964 0-3.682-.731-5.156-2.194-1.473-1.462-2.21-3.214-2.21-5.255 0-2.04.885-4.524 2.652-7.449L25.911 0h5.696l-3.634 10.612C30.658 11.905 32 14.15 32 17.347z" fill="inherit" fill-rule="evenodd" stroke="none"></path></svg>
+						<p>With 4 locations in Cairo, Neverland is equipped with a wide variety of accessories and costumes for your young ones. This may be the best place to start your hunt for the perfect costume.</p>
+						
+						<div class="thumb lazyload" data-bg="https://parkofideas.com/kidz/demo2/wp-content/uploads/2016/10/clothes-untitled-6-2016-09-01-11-41-43-70x70.png"></div>
+
+						<div class="author">Ayman Galal</div>
+						<div class="occupation">
+							CEO & Founder </div>
+					</div>
+					
+				
+				</div>
+			</div>
+		</section>
+
+		<section id="home-post">
+			<div class="container">
+				<div class="home-post-header-wrap">
+					<a href="{% url 'news' %}">
+						<h2>News </h2>
+					</a>
+				</div>
+				<div class="row">
+					{%for post in recent_posts%}
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<article id="bottom-post-179"
+							class="post-179 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+
+							<div class="lazyload post-img" data-bgset="{{post.photo_main.url}}"></div>
+
+
+							<div class="post-content">
+								<div class="post-meta">
+									<span class="post-date">
+										{{post.timestamp.date}} </span>
+								</div>
+								<header class="post-header">
+									<a href="/news/news/{{post.id}}">
+										<h3>{{post.title}}</h3>
+									</a>
+								</header>
+								<span class="more">Read More</span>
+							</div>
+							<a href="/news/news/{{post.id}}" class="whole"></a>
+						</article>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+		<section id="home-brand" style="background-color: #F4F8FF">
+			<div class="container">
+				<div class="list list--7 h-carousel h-carousel--wide-arrows " id="brands-carousel">
+
+					<div class="lazyload brand" title="Brand 1"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+									
+				
+
+					<div class="lazyload brand" title="Brand 2"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 3"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 4"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+					<div class="lazyload brand" title="Brand 5"
+						data-bgset="{%static 'img/neverland-logo.png' %}"></div>
+
+
+					<div class="lazyload brand" title="Brand 6"
+						data-bgset= "{%static 'img/neverland-logo.png' %}">
+					</div>
+
+		
+				</div>
+			</div>
+		</section>
+
+		<section id="home-text" style="background: #31ACD8 ; color: #fff">
+			<div class="container">
+				<h1 style="border-bottom: 3px solid #fff;">Neverland Egypt</h1> 
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="entry-content">
+							<div class="clear"></div>
+							<div class="two-col">
+								<div class="left">
+									<img src="https://images.unsplash.com/photo-1532493943049-c89000707a39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
+										alt="">
+
+								</div>
+								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
+									<div>Neverland hosts a large collection of supposedly
+										scary but actually funny outfits for kids aged between three to fourteen years, <br>
+										as well as a rather limited collection of adult costumes. <br> Additionally, the shop
+										also offers cute accessories to match your costume. </div>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 		<section class="clearfix  home-instagram">
 			<div class="home-post-header-wrap">
 				<h2>
@@ -456,7 +455,7 @@
 		
 		$('#brands-carousel').slick({
 			arrows: false, 
-			slidesToShow: 2,
+			slidesToShow: 3,
 			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 3000,
@@ -476,7 +475,7 @@
 
 
 
-</html>
+
 
 
 {% endblock %}

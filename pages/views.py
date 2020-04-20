@@ -42,12 +42,14 @@ def review(request):
     print(request.POST)
     product = Product.objects.get(pk= request.POST['item_id'])
     content = request.POST['review']
+    phone = request.POST['phone']
+
     if request.user.is_authenticated:
         user = request.user
     else:
         user = request.POST['author']
     
-    review = Review(product= product, content=content, user= user)
+    review = Review(product= product, content=content, user= user , phone=phone)
     review.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
