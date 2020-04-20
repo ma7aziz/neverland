@@ -53,17 +53,7 @@
 		</section>
 
 		<section id="home-banners" class="preloading" style="background-color: #F4F8FF;">
-			<div class="banner  boxed-layout alfa-image">
-				<div class="bg" style="background: #3DB0D8"></div>
-				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
-					srcset=""
-					alt="Warm Winter Jacket" style="">
-				<div class="inner"  style="color: #3DB0D8">
-					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Customs </h3>
-				</div>
-				<!-- <div class="price" style="color: #3DB0D8">Lorem, ipsum.</div> -->
-				<a class="more" href="{%url 'shop' %}" style="background: #3DB0D8">Shop Now</a>
-			</div>
+		
 			<!--
 					-->
 			<div class="banner  boxed-layout alfa-image">
@@ -79,10 +69,21 @@
 				<!-- <div class="price" style="color: #D72378">$27</div> -->
 				<a class="more" href="{%url 'shop' %}" style="background: #D72378">Shop Now</a>
 			</div>
+			<div class="banner  boxed-layout alfa-image">
+				<div class="bg" style="background: #3DB0D8"></div>
+				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
+					srcset=""
+					alt="boys costumes" >
+				<div class="inner"  style="color: #3DB0D8">
+					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Customs </h3>
+				</div>
+				<!-- <div class="price" style="color: #3DB0D8">Lorem, ipsum.</div> -->
+				<a class="more" href="{%url 'shop' %}" style="background: #3DB0D8">Shop Now</a>
+			</div>
 
-			<!--
-			-->
 		</section>
+		
+		
 
 		<div id="home-tabs" class="c-home-tabs c-home-tabs--padding-top c-home-tabs--padding-bottom">
 			<div class="container home-tabs-wrap">
@@ -316,42 +317,7 @@
 			</div>
 		</section>
 
-		<section id="home-post">
-			<div class="container">
-				<div class="home-post-header-wrap">
-					<a href="{% url 'news' %}">
-						<h2>News </h2>
-					</a>
-				</div>
-				<div class="row">
-					{%for post in recent_posts%}
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<article id="bottom-post-179"
-							class="post-179 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-
-							<div class="lazyload post-img" data-bgset="{{post.photo_main.url}}"></div>
-
-
-							<div class="post-content">
-								<div class="post-meta">
-									<span class="post-date">
-										{{post.timestamp.date}} </span>
-								</div>
-								<header class="post-header">
-									<a href="/news/news/{{post.id}}">
-										<h3>{{post.title}}</h3>
-									</a>
-								</header>
-								<span class="more">Read More</span>
-							</div>
-							<a href="/news/news/{{post.id}}" class="whole"></a>
-						</article>
-					</div>
-					{% endfor %}
-
-				</div>
-			</div>
-		</section>
+		
 
 		<section id="home-brand" style="background-color: #F4F8FF">
 			<div class="container">
@@ -425,7 +391,42 @@
 				</div>
 			</div>
 		</section>
-		
+		<section id="home-post">
+			<div class="container">
+				<div class="home-post-header-wrap">
+					<a href="{% url 'news' %}">
+						<h2>News </h2>
+					</a>
+				</div>
+				<div class="row">
+					{%for post in recent_posts%}
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<article id="bottom-post-179"
+							class="post-179 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+
+							<div class="lazyload post-img" data-bgset="{{post.photo_main.url}}"></div>
+
+
+							<div class="post-content">
+								<div class="post-meta">
+									<span class="post-date">
+										{{post.timestamp.date}} </span>
+								</div>
+								<header class="post-header">
+									<a href="/news/news/{{post.id}}">
+										<h3>{{post.title}}</h3>
+									</a>
+								</header>
+								<span class="more">Read More</span>
+							</div>
+							<a href="/news/news/{{post.id}}" class="whole"></a>
+						</article>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
 		<section class="clearfix  home-instagram">
 			<div class="home-post-header-wrap">
 				<h2>
@@ -443,6 +444,7 @@
 				<img src="{%static 'img/home-6.jpeg'%}" alt="" width="100%" height="100%">	
 			</div>
 		</section>
+		
 		{% include 'partials/footer.html' %}
 	</div><!-- #wrap -->
 	<div id="ip-quickview"></div>

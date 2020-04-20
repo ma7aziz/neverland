@@ -25,17 +25,12 @@
 
 		}
 
-		.commentlist .comment-text {
-			padding-left: 10px;
-		}
+	
 
 		div .woocommerce-tabs .wc-tabs-wrapper {
 			margin-top: 10px;
 		}
 
-		#tab-reviews #review_form_wrapper {
-			padding-left: 20px !important;
-		}
 	}
 
 	.size {
@@ -103,7 +98,7 @@
 														<div class="slide ">
 															<a href="{{item.image1.url}}"
 																class="ip-product-image-link zoom" data-size="582x582"
-																itemprop="image" onclick="" data-lightbox="{{item.title}}">
+															 	itemprop="image" onclick="" data-lightbox="{{item.title}}">
 																<img width="100%" height="555" src="{{item.image1.url}}"
 																	class="attachment-woocommerce_single size-woocommerce_single wp-post-image"
 																	srcset="{{item.image1.url}} " />
@@ -316,7 +311,7 @@
 																				name="item_id">
 																			{% if not user.is_authenticated %}
 																			<p class="comment-form-author"
-																				style="padding-bottom: 20px;">
+																				style="">
 																				<label for="author">Name&nbsp;<span
 																						class="required">*</span>
 																				</label>
@@ -566,7 +561,8 @@
 			'resizeDuration': 200,
 			'wrapAround': true,
 			'albumlabel': 'Product',
-			'wrapAround' :true		
+			'wrapAround' :true	,
+			'maxHeight' : '100%'	
 			})
 		</script>
 	
