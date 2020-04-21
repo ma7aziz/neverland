@@ -50,11 +50,9 @@
                 </svg>
             </a>
             <div class="container-2">
-                <!-- <a rel="nofollow" class="wishlist" href="{%url 'wishlist' %}">
-                    <img src="{%static 'img/icons/heart.svg' %}" alt="">
-                </a> -->
+               
                 <a rel="nofollow" class="wishlist added " id="wishlist-nav" href="{%url 'wishlist' %}">
-                    <!-- <use xlink:href="#svg-wishlist-on"></use> -->
+                
                     <svg viewBox="0 0 272 233" fill="inherit" stroke="inherit">
                         <path
                             d="M135.695 42.202c66.16-117.992 269.043 32.762 0 189.985V42.202zm-.017.097c-66.16-117.992-269.043 32.762 0 189.985V42.299zM31 58.601c.002-11.835 16.913-13.483 19.315 0 4.519 25.377 6.931 47.092 36.805 74.913 15.406 14.348-4.92 21.15-11.85 14.71 0 0-44.28-33.076-44.27-89.623z"
@@ -69,7 +67,7 @@
                 </a>
 
                 <a class="search" href="{%url 'search'%}">
-                    <!-- <i class="fas fa-search fa-2x"></i> -->
+                  
                     <svg viewBox="0 0 20 20" id="svg-search" fill="inherit" stroke="inherit">
                         <path
                             d="M11.124 15.367l.001.001 3.528 3.527a3.005 3.005 0 0 0 4.246.004 3.005 3.005 0 0 0-.004-4.246l-3.527-3.528h-.001A7.977 7.977 0 0 0 16 8a8 8 0 1 0-4.876 7.367zM8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10z"
@@ -81,7 +79,7 @@
 
 
                 <a class="cart-info" href="{%url 'cart' %}">
-                    <!-- <img src="{%static 'img/icons/cart.svg' %}" alt=""> -->
+                  
                     <svg viewBox="0 0 24 22" id="svg-cart" fill="inherit" stroke="inherit">
                         <path
                             d="M9 7H1.501C.667 7 0 7.672 0 8.5v2c0 .826.672 1.5 1.501 1.5H2v7.506A2.5 2.5 0 0 0 4.493 22h15.014A2.495 2.495 0 0 0 22 19.506V12h.499c.834 0 1.501-.672 1.501-1.5v-2c0-.826-.672-1.5-1.501-1.5H15v1.002A2 2 0 0 1 13.002 10h-2.004A2 2 0 0 1 9 8.002V7zm-4 6.003A.999.999 0 0 1 6 12c.552 0 1 .438 1 1.003v4.994A.999.999 0 0 1 6 19c-.552 0-1-.438-1-1.003v-4.994zm4 0A.999.999 0 0 1 10 12c.552 0 1 .438 1 1.003v4.994A.999.999 0 0 1 10 19c-.552 0-1-.438-1-1.003v-4.994zm4 0A.999.999 0 0 1 14 12c.552 0 1 .438 1 1.003v4.994A.999.999 0 0 1 14 19c-.552 0-1-.438-1-1.003v-4.994zm4 0A.999.999 0 0 1 18 12c.552 0 1 .438 1 1.003v4.994A.999.999 0 0 1 18 19c-.552 0-1-.438-1-1.003v-4.994zM10 .998A.998.998 0 0 1 11.01 0h1.98c.558 0 1.01.446 1.01.998v7.004A.998.998 0 0 1 12.99 9h-1.98C10.451 9 10 8.554 10 8.002V.998z"
@@ -103,31 +101,30 @@
 
             <div class="product-categories">
                 <ul class="main-menu-container main-menu-icons main-menu-fixed">
-                    <li class=" with-icon items-6"><a href="/category/Baby">
-                            <!-- <svg>
-                                <use xlink:href="#svg-icon-4" /></svg> -->
+                    <li class="with-icon items-6">
+                        <a href="/category/Baby">
                             <img src="{%static 'img/icons/Baby.svg' %}" alt="">
-                            <span>For Babies</span></a><a class="js-more" href="#"><i class="more"></i></a>
-                        <!-- <ul class="sub-menu">
-                                <li id="menu-item-403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-403"><a href="https://parkofideas.com/kidz/demo1/">Demo 1</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-404"><a href="https://parkofideas.com/kidz/demo2/">Demo 2</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-405"><a href="https://parkofideas.com/kidz/demo3/">Demo 3</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-406"><a href="https://parkofideas.com/kidz/demo4/">Demo 4</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-407"><a href="https://parkofideas.com/kidz/demo5/">Demo 5</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                            </ul> -->
+                            <span>For Babies</span></a><a class="js-more" href="#"><i class="more"></i>
+                        </a>
                     </li>
-                    <li class="with-icon items-6"><a href="/category/Boys">
+                  
+                    <li class="with-icon has-children items-6">
+                        <a href="/category/Boys">
                             <img src="{%static 'img/icons/Boy.svg'%}" alt="">
-                            <!-- <svg> -->
-                            <!-- <use xlink:href="#svg-icon-4" /></svg> -->
-                            <span>For Boys</span></a><a class="js-more" href="#"><i class="more"></i></a>
-                        <!-- <ul class="sub-menu">
-                                <li id="menu-item-403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-403"><a href="https://parkofideas.com/kidz/demo1/">Demo 1</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-404"><a href="https://parkofideas.com/kidz/demo2/">Demo 2</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-405"><a href="https://parkofideas.com/kidz/demo3/">Demo 3</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-406"><a href="https://parkofideas.com/kidz/demo4/">Demo 4</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                                <li id="menu-item-407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-407"><a href="https://parkofideas.com/kidz/demo5/">Demo 5</a><a href="#" class="js-more"><i class="more"></i></a></li>
-                            </ul> -->
+                            <span>For Boys</span></a><a class="js-more" href="#"><i class="more"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class=""><a
+                                    href="">SuberHero</a><a
+                                    class="js-more" href="#"><i class="more"></i></a></li>
+                            <li class=""><a href="">Historic</a><a
+                                    class="js-more" href="#"><i class="more"></i></a></li>
+                            <li class=""><a href="">Hollween</a><a
+                                    class="js-more" href="#"><i class="more"></i></a></li>
+                            <li class=""><a href="">Egyptian</a><a
+                                    class="js-more" href="#"><i class="more"></i></a></li>
+                            
+                        </ul>
                     </li>
                     <li class=" with-icon  items-6">
                         <a href="/category/Girls">
