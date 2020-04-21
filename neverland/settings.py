@@ -52,7 +52,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -170,5 +172,10 @@ CACHES = {
     'default':{
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': 'dataflair_cache',
+        'TIMEOUT': 900,
+        'OPTIONS': {
+            'MAX_ENTRIES': 10,
+            'CALL_FREQUENCY': 1,
+        }
     }
 }
