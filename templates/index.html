@@ -2,11 +2,13 @@
 {%  load static %}
 {% block content %}
 <style>
-	@media (max-width: 600px){
+	@media (max-width: 800px){
 		 #home-slider h3 , #home-slider h4  {
 			color: #fff;
 		}
-		
+		#slider-text{
+			color: #041E34 !important;
+		}
 	}
 </style>
 {% if messages %}
@@ -41,9 +43,9 @@
 			<div class="slick preloading h-carousel js-slider-carousel ">
 				{% for  image in slides %}
 				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); 
-												background-size:cover ;
+												background-size: cover ;
 												">
-					<div class="inner" style="color: #fff;">
+					<div class="inner" id='slider-text' style="color: #fff;">
 						<h3>Where you will never grow up !</h3>
 						<a href="{%url 'shop' %}"><h4>SHOP NOW</h4></a>
 					</div>
