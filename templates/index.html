@@ -2,12 +2,24 @@
 {%  load static %}
 {% block content %}
 <style>
-	@media (max-width: 800px){
-		 #home-slider h3 , #home-slider h4  {
-			color: #fff;
+	#slider-text {
+		color : #fff;
+	}
+
+	@media (max-width: 600px){
+		
+		.bgimg {
+			background-size:contain !important;
 		}
-		#slider-text{
-			color: #041E34 !important;
+		
+		
+	}
+	@media (max-width: 400px) {
+		#home-slider  {
+			height: 410px !important;
+		}
+		#home-slider .inner {
+			top: 250px !important;
 		}
 	}
 </style>
@@ -45,7 +57,7 @@
 				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); 
 												background-size: cover ;
 												">
-					<div class="inner" id='slider-text' style="color: #fff;">
+					<div class="inner" id="slider-text" >
 						<h3>Where you will never grow up !</h3>
 						<a href="{%url 'shop' %}"><h4>SHOP NOW</h4></a>
 					</div>
