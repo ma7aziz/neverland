@@ -10,7 +10,6 @@ def add_variable_to_context(request):
     recent_items = items.order_by('-id')[:3]
     current_datetime = datetime.datetime.now()
     categories = Category.objects.all().order_by('title')
-
     cart_count = 0
     if request.user.is_authenticated:
 
@@ -24,9 +23,6 @@ def add_variable_to_context(request):
             cart_count= Cart.objects.get(pk=cart_session).cart_count()
 
     wishlist_session = request.session.get('wishlist_session')
-    
-  
-    
     
     if wishlist_session:
         wishlist = None
