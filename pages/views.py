@@ -29,7 +29,12 @@ def index(request):
 
     slides = HomeSlides.objects.all().order_by('-id')[:3]
     recent_posts = Post.objects.all().order_by('-timestamp')[:4]
-    return render(request, 'index.html', {'slides': slides, 'recent_posts': recent_posts})
+    items = Product.objects.active()
+    most_sold = items.order_by('-times_sold')[:8]
+    featured = Product.objects.featured()[:8]
+    recent_items = items.order_by('-id')[:8]
+    print(featured, most_sold, recent_items)
+    return render(request, 'index.html', {'slides': slides, 'recent_posts': recent_posts,'most_sold_home':most_sold, 'featured_home': featured ,'recent_items_home':recent_items})
 
 def product(request, id):
     item = Product.objects.get(pk=id)

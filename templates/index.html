@@ -5,6 +5,16 @@
 	#slider-text {
 		color : #fff;
 	}
+	
+	.slick-dots {
+		opacity: 0.5;
+		
+		
+	}
+	.home-tab {
+		padding-top: 30px;
+	}
+	
 	@media (max-width: 990px) {
 		.youtube {
 			display: none;
@@ -74,232 +84,6 @@
 
 			</div> 
 		</section>
-
-		<section id="home-banners" class="preloading" style="background-color: #F4F8FF;">
-		
-			<!--
-					-->
-			<div class="banner  boxed-layout alfa-image">
-				<div class="bg" style="background: #D72378">
-
-				</div>
-				<img class="thumb" src="{% static 'img/DSC_1431.png' %}"
-					srcset="{%static 'img/girl-banner.png' %}"
-					alt="Dark Blue Jacket">
-				<div class="inner">
-					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls <br> costumes </h3>
-				</div>
-				
-				<a class="more" href="{%url 'shop' %}" style="background: #D72378">Shop Now</a>
-			</div>
-			<div class="banner  boxed-layout alfa-image">
-				<div class="bg" style="background: #3DB0D8"></div>
-				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
-					srcset="{% static 'img/boy-banner.png' %}"
-					alt="boys costumes" >
-				<div class="inner"  style="color: #3DB0D8">
-					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Costumes </h3>
-				</div>
-				
-				<a class="more" href="{%url 'shop' %}" style="background: #3DB0D8">Shop Now</a>
-			</div>
-
-		</section>
-		
-		
-
-		<div id="home-tabs" class="c-home-tabs c-home-tabs--padding-top c-home-tabs--padding-bottom">
-			<div class="container home-tabs-wrap">
-				<ul class="home-tabs clear">
-					<li class="current">
-						<a href="#tab-featured_products">
-							Featured </a>
-					</li>
-				
-					<li>
-						<a href="#tab-best_selling_products">
-							Bestsellers </a>
-					</li>
-					<li>
-						<a href="#tab-recent_products">
-							Latest </a>
-					</li>
-				</ul>
-			</div>
-
-			<div id="tab-featured_products" data-per-page="12" class="container home-tab visible current">
-				<div class="woocommerce columns-4 ">
-					<div class="products-wrap products-wrap--mobile-small">
-						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
-
-							{% for item in featured %}
-							<div
-								class="product type-product post-144 status-publish first instock product_cat-boy-shoes product_cat-shoes has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
-								<div class="ip-shop-loop-wrap">
-
-									<div class="ip-shop-loop-thumb">
-										<a href="product/{{item.id}}">
-
-											<img src="{{item.image1.url}}" style="height: 100%;"	 />
-										</a>
-									</div>
-
-									<div class="ip-shop-loop-details">
-										<h3><a href="product/{{item.id}}">{{item.title}}</a>
-										</h3>
-
-
-										<div class="ip-shop-loop-after-title">
-											<div class="ip-shop-loop-price">
-
-												<span class="price"><span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">LE
-														</span>{{item.price}}</span></span>
-											</div>
-											<div class="ip-shop-loop-actions">
-
-
-												<a href="#" class="ip-wishlist-btn wishlist-btn " data-id="{{item.id}}"
-													data-title="Wishlist">
-													<i class="far fa-heart fa-2x" style=""></i>
-												</a>
-
-												<a href="/product/{{item.id}}" >
-													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
-													add to cart
-												</a>
-
-
-												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{% endfor %}
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
-
-
-			<div id="tab-best_selling_products" data-per-page="12" class="container home-tab">
-				<div class="woocommerce columns-4 ">
-					<div class="products-wrap products-wrap--mobile-small">
-						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
-
-							{% for item in most_sold %}
-							<div
-								class="product type-product post-57 status-publish first instock product_cat-bottoms product_cat-bottoms-for-babies product_cat-for-babies product_cat-for-boys product_cat-gifts product_cat-sweaters product_cat-sweaters-for-babies product_cat-tops has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
-
-
-								<div class="ip-shop-loop-wrap">
-
-									<div class="ip-shop-loop-thumb">
-										<a href="/product/{{item.id}}">
-
-											<img src="{{ item.image1.url }}" alt="{{ item.title }}"
-												class="thumb-shop-catalog lazyload front"
-												style="height: 100%;"	 />
-										</a>
-									</div>
-
-									<div class="ip-shop-loop-details">
-										<h3><a href="product/{{item.id}}">{{ item.title }}</a></h3>
-
-
-										<div class="ip-shop-loop-after-title">
-											<div class="ip-shop-loop-price">
-
-												<span class="price"><span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">LE
-														</span>{{item.price}}</span></span>
-											</div>
-											<div class="ip-shop-loop-actions">
-												<a href="#" class="ip-wishlist-btn " data-product-id="144"
-													data-title="Wishlist">
-													<i class="far fa-heart fa-2x" style=""></i>
-												</a>
-
-												<a href="product/{{item.id}}" >
-													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
-													add to cart
-												</a>
-
-
-												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{% endfor %}
-
-
-
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
-			<div id="tab-recent_products" data-per-page="12" class="container home-tab">
-				<div class="woocommerce columns-4 ">
-					<div class="products-wrap products-wrap--mobile-small">
-						<div class="products products--layout-boxed-white columns-4 products--mobile-small">
-							{% for item in  recent_items %}
-							<div
-								class="product type-product post-150 status-publish first instock product_cat-girl-shoes product_cat-shoes has-post-thumbnail shipping-taxable purchasable product-type-simple">
-
-
-								<div class="ip-shop-loop-wrap">
-
-									<div class="ip-shop-loop-thumb">
-										<a href="product/{{item.id}}">
-											<span class="ip-shop-loop-new-badge">New</span>
-											<img src="{{item.image1.url }}" data-src="{{item.image1.url}}"
-												alt="Stride rite str tulip sandal"
-												class="thumb-shop-catalog lazyload front"
-												data-srcset="{{item.image1.url}} 210w,"
-												style="height: 100%;"  />
-										</a>
-									</div>
-
-									<div class="ip-shop-loop-details">
-										<h3><a href="product/{{item.id}}" >{{item.title}}</a></h3>
-
-
-										<div class="ip-shop-loop-after-title">
-											<div class="ip-shop-loop-price">
-
-												<span class="price"><span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">LE
-														</span>{{item.price}}</span></span>
-											</div>
-											<div class="ip-shop-loop-actions">
-												<a href="#" class="ip-wishlist-btn " data-product-id="144"
-													data-title="Wishlist">
-													<i class="far fa-heart fa-2x" style=""></i>
-												</a>
-
-												<a href="/product/{{item.id}}" >
-													<img class="svg-add" src="{% static 'img/icons/cart.svg' %}">
-													add to cart
-												</a>
-
-
-												<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{%endfor%}
-
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
 		<section id="home-review">
 			<div class="container">
 				<div class="slick-review h-carousel h-carousel--flex h-carousel--wide-arrows review-carousel ">
@@ -336,8 +120,6 @@
 				</div>
 			</div>
 		</section>
-
-		
 		<section class="preloading youtube" style="position:relative ; padding-bottom: 56.25%; height: 0;">
 			<iframe width="100%" height="500px" style="position: absolute;
 			top: 0;
@@ -346,6 +128,216 @@
 			height: 100%;"  src="https://www.youtube.com/embed/1638xMo2wC0?autoplay=1&modestbranding=1&controls=0&mute=1&loop=1" frameborder="0" 
 			 ></iframe>
 		</section>
+		<section id="home-banners" class="preloading" style="background-color: #F4F8FF;">
+	
+			<div class="banner  boxed-layout alfa-image">
+				<div class="bg" style="background: #D72378">
+
+				</div>
+				<img class="thumb" src="{% static 'img/DSC_1431.png' %}"
+					srcset="{%static 'img/girl-banner.png' %}"
+					alt="Dark Blue Jacket">
+				<div class="inner">
+					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls <br> costumes </h3>
+				</div>
+				
+				<a class="more" href="{%url 'shop' %}" style="background: #D72378">Shop Now</a>
+			</div>
+			<div class="banner  boxed-layout alfa-image">
+				<div class="bg" style="background: #3DB0D8"></div>
+				<img class="thumb" src="{% static 'img/boy-banner.png' %}"
+					srcset="{% static 'img/boy-banner.png' %}"
+					alt="boys costumes" >
+				<div class="inner"  style="color: #3DB0D8">
+					<h3  style="color: #3DB0D8; font-size: 30px; font-family: 'Fredoka One', sans-serif">Boys <br> Costumes </h3>
+				</div>
+				
+				<a class="more" href="{%url 'shop' %}" style="background: #3DB0D8">Shop Now</a>
+			</div>
+
+		</section>
+		
+		
+
+		<div  class="c-home-tabs c-home-tabs--padding-top c-home-tabs--padding-bottom">
+				<div id="tab-featured_products" data-per-page="12" class="container home-tab visible current" >
+					<h1 style="border-bottom: 3px solid #fff; text-align:center">Featured Products</h1> 
+					<div class="woocommerce columns-4 ">
+						<div class="products-wrap products-wrap--mobile-small">
+							<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+								{% for item in featured_home %}
+								<div
+									class="product type-product post-144 status-publish first instock product_cat-boy-shoes product_cat-shoes has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+									<div class="ip-shop-loop-wrap">
+	
+										<div class="ip-shop-loop-thumb">
+											<a href="product/{{item.id}}">
+	
+												<img src="{{item.image1.url}}" style="height: 100%;"	 />
+											</a>
+										</div>
+	
+										<div class="ip-shop-loop-details">
+											<h3><a href="product/{{item.id}}">{{item.title}}</a>
+											</h3>
+	
+	
+											<div class="ip-shop-loop-after-title">
+												<div class="ip-shop-loop-price">
+	
+													<span class="price"><span class="woocommerce-Price-amount amount"><span
+																class="woocommerce-Price-currencySymbol">LE
+															</span>{{item.price}}</span></span>
+												</div>
+												<div class="ip-shop-loop-actions">
+	
+	
+													<a href="#" class="ip-wishlist-btn wishlist-btn " data-id="{{item.id}}"
+														data-title="Wishlist">
+														<i class="far fa-heart fa-2x" style=""></i>
+													</a>
+	
+													<a href="/product/{{item.id}}" >
+														<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
+														<i class="fas fa-shopping-basket fa-2x "></i>add to cart
+													</a>
+	
+	
+													<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="tab-best_selling_products" data-per-page="12" class="container home-tab visible current" >
+					<h1 style="border-bottom: 3px solid #fff; text-align:center">Top Selling</h1> 
+					<div class="woocommerce columns-4 ">
+						<div class="products-wrap products-wrap--mobile-small">
+							<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+	
+								{% for item in most_sold_home %}
+								<div
+									class="product type-product post-57 status-publish first instock product_cat-bottoms product_cat-bottoms-for-babies product_cat-for-babies product_cat-for-boys product_cat-gifts product_cat-sweaters product_cat-sweaters-for-babies product_cat-tops has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+	
+	
+									<div class="ip-shop-loop-wrap">
+	
+										<div class="ip-shop-loop-thumb">
+											<a href="/product/{{item.id}}">
+	
+												<img src="{{ item.image1.url }}" alt="{{ item.title }}"
+													class="thumb-shop-catalog lazyload front"
+													style="height: 100%;"	 />
+											</a>
+										</div>
+	
+										<div class="ip-shop-loop-details">
+											<h3><a href="product/{{item.id}}">{{ item.title }}</a></h3>
+	
+	
+											<div class="ip-shop-loop-after-title">
+												<div class="ip-shop-loop-price">
+	
+													<span class="price"><span class="woocommerce-Price-amount amount"><span
+																class="woocommerce-Price-currencySymbol">LE
+															</span>{{item.price}}</span></span>
+												</div>
+												<div class="ip-shop-loop-actions">
+													<a href="#" class="ip-wishlist-btn " data-product-id="144"
+														data-title="Wishlist">
+														<i class="far fa-heart fa-2x" style=""></i>
+													</a>
+	
+													<a href="product/{{item.id}}" >
+														<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
+														<i class="fas fa-shopping-basket fa-2x "></i>add to cart
+													</a>
+	
+	
+													<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+	
+	
+	
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="tab-recent_products" data-per-page="12" class="container home-tab visible current">
+					<h1 style="border-bottom: 3px solid #fff; text-align:center">Recently Added</h1> 
+					<div class="woocommerce columns-4 ">
+						<div class="products-wrap products-wrap--mobile-small">
+							<div class="products products--layout-boxed-white columns-4 products--mobile-small">
+								{% for item in  recent_items_home %}
+								<div
+									class="product type-product post-150 status-publish first instock product_cat-girl-shoes product_cat-shoes has-post-thumbnail shipping-taxable purchasable product-type-simple">
+	
+	
+									<div class="ip-shop-loop-wrap">
+	
+										<div class="ip-shop-loop-thumb">
+											<a href="product/{{item.id}}">
+												<span class="ip-shop-loop-new-badge">New</span>
+												<img src="{{item.image1.url }}" data-src="{{item.image1.url}}"
+													alt="Stride rite str tulip sandal"
+													class="thumb-shop-catalog lazyload front"
+													data-srcset="{{item.image1.url}} 210w,"
+													style="height: 100%;"  />
+											</a>
+										</div>
+	
+										<div class="ip-shop-loop-details">
+											<h3><a href="product/{{item.id}}" >{{item.title}}</a></h3>
+	
+	
+											<div class="ip-shop-loop-after-title">
+												<div class="ip-shop-loop-price">
+	
+													<span class="price"><span class="woocommerce-Price-amount amount"><span
+																class="woocommerce-Price-currencySymbol">LE
+															</span>{{item.price}}</span></span>
+												</div>
+												<div class="ip-shop-loop-actions">
+													<a href="#" class="ip-wishlist-btn " data-product-id="144"
+														data-title="Wishlist">
+														<i class="far fa-heart fa-2x" style=""></i>
+													</a>
+	
+													<a href="/product/{{item.id}}" >
+														<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
+														<i class="fas fa-shopping-basket fa-2x "></i>add to cart
+													</a>
+	
+	
+													<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span> </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{%endfor%}
+	
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+	
+
+		</div>
+			
+			
+		
 		<section id="home-brand" style="background-color: #F4F8FF">
 			<div class="container">
 				<div class="list list--7 h-carousel h-carousel--wide-arrows " id="brands-carousel">
@@ -391,13 +383,13 @@
 			</div>
 		</section>
 
-		<section id="home-text" style="background: #31ACD8 ; color: #fff">
+		<section id="home-text" style="background: #31ACD8 ; color: #fff ; padding-bottom: 0 !important">
 			<div class="container">
-				<h1 style="border-bottom: 3px solid #fff;">Neverland Egypt</h1> 
+				<h1 style="border-bottom: 3px solid #fff;">Neverland Story</h1> 
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="entry-content">
-							<div class="clear"></div>
+						<div class="entry-content story-slider">
+				
 							<div class="two-col">
 								<div class="left">
 									<img src="{%static 'img/about.jpeg' %} " height="100%"
@@ -405,15 +397,42 @@
 
 								</div>
 								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
-									<div>Neverland: we were born to lead from the first day we stared, as we are the first shop to manufacture and sell costumes in Egypt. <br>
+									<div> We were born to lead from the first day we stared, as we are the first shop to manufacture and sell costumes in Egypt. <br>
 										 Our story began in 2006; our company was founded at this year and through this time we were the perfect company choice to sell costumes for (costume parties-events) all over the country. <br>
 										Our costumes help children to be more imaginative during their early ages and made them feel like Superheroes, Doctors, and princess... Etc. seeing how that makes them feels gives us the motive to continue. <br>
 										This is our biggest pride.  <br>
 										From our stores you can get costumes, accessories, wings, hats, toys, and tricks, and get special costumes for your costume parties   (Halloween, Christmas... Etc.)  </div>
 								</div>
 							</div>
-							<div class="clear"></div>
-							<div class="clear"></div>
+							<div class="two-col">
+								<div class="left">
+									<img src="{%static 'img/about.jpeg' %} " height="100%"
+										alt="About us" loading="lazy">
+
+								</div>
+								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
+									<div>We were born to lead from the first day we stared, as we are the first shop to manufacture and sell costumes in Egypt. <br>
+										 Our story began in 2006; our company was founded at this year and through this time we were the perfect company choice to sell costumes for (costume parties-events) all over the country. <br>
+										Our costumes help children to be more imaginative during their early ages and made them feel like Superheroes, Doctors, and princess... Etc. seeing how that makes them feels gives us the motive to continue. <br>
+										This is our biggest pride.  <br>
+										From our stores you can get costumes, accessories, wings, hats, toys, and tricks, and get special costumes for your costume parties   (Halloween, Christmas... Etc.)  </div>
+								</div>
+							</div>
+							<div class="two-col">
+								<div class="left">
+									<img src="{%static 'img/about.jpeg' %} " height="100%"
+										alt="About us" loading="lazy">
+
+								</div>
+								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
+									<div>We were born to lead from the first day we stared, as we are the first shop to manufacture and sell costumes in Egypt. <br>
+										 Our story began in 2006; our company was founded at this year and through this time we were the perfect company choice to sell costumes for (costume parties-events) all over the country. <br>
+										Our costumes help children to be more imaginative during their early ages and made them feel like Superheroes, Doctors, and princess... Etc. seeing how that makes them feels gives us the motive to continue. <br>
+										This is our biggest pride.  <br>
+										From our stores you can get costumes, accessories, wings, hats, toys, and tricks, and get special costumes for your costume parties   (Halloween, Christmas... Etc.)  </div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -477,7 +496,7 @@
 	</div><!-- #wrap -->
 	<div id="ip-quickview"></div>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
 	<script>
@@ -496,6 +515,48 @@
 			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 3000,
+		})
+		$('.entry-content').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			arrows: false,
+			autoplaySpeed: 6000,
+			pauseOnHover: true
+		})
+		$('.products').slick({
+			autoplay:true,
+			dots: true,
+			arrows: false,
+			pauseOnHover: true,
+			slidesToShow: 4,
+                slidesToScroll: 1,
+        responsive: [
+        {
+            breakpoint: 1000,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 990,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        
+
+  ]
+
 		})
 	</script>
 

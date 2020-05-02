@@ -5,9 +5,9 @@ import datetime
 
 def add_variable_to_context(request):
     items = Product.objects.active()
-    most_sold = items.order_by('-times_sold')[:4]
-    featured = Product.objects.featured()[:4]
-    recent_items = items.order_by('-id')[:4]
+    most_sold = items.order_by('-times_sold')[:3]
+    featured = Product.objects.featured()[:3]
+    recent_items = items.order_by('-id')[:3]
     current_datetime = datetime.datetime.now()
     categories = Category.objects.all().order_by('title')
 
