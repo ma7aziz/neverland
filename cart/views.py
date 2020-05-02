@@ -82,7 +82,7 @@ def add_to_cart(request):
                 cart.cart_item_set.add(cart_item)
                 cart.save()
                 messages.success(request, 'Added to cart')
-                print(cart.id)
+                
         else:
             cart = Cart()
             cart.save()
@@ -91,13 +91,13 @@ def add_to_cart(request):
             cart.cart_item_set.add(cart_item)
             messages.success(request, 'Added to cart')
             request.session['cart'] = cart.id
-    if request.is_ajax():
+    # if request.is_ajax():
 
-        response_data = {}
-        response_data['cart_count'] = cart.cart_count()
-        response_data['message'] = 'Added tO cart'
-        return HttpResponse(json.dumps(response_data),
-                            content_type="application/json")
+    #     response_data = {}
+    #     response_data['cart_count'] = cart.cart_count()
+    #     response_data['message'] = 'Added to cart'
+    #     return HttpResponse(json.dumps(response_data),
+    #                         content_type="application/json")
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

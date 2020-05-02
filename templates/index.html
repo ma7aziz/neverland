@@ -5,6 +5,11 @@
 	#slider-text {
 		color : #fff;
 	}
+	@media (max-width: 990px) {
+		.youtube {
+			display: none;
+		}
+	}
 
 	@media (max-width: 600px){
 		
@@ -52,7 +57,9 @@
 				<span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
 			</div>
 
-			<div class="slick preloading h-carousel js-slider-carousel ">
+		<div class="slick preloading h-carousel js-slider-carousel ">
+				
+				
 				{% for  image in slides %}
 				<div class="bgimg slide" style="background-image: url({{image.home_image.url}}); 
 												background-size: cover ;
@@ -65,7 +72,7 @@
 				{% endfor %}
 
 
-			</div>
+			</div> 
 		</section>
 
 		<section id="home-banners" class="preloading" style="background-color: #F4F8FF;">
@@ -108,10 +115,7 @@
 						<a href="#tab-featured_products">
 							Featured </a>
 					</li>
-					<!-- <li>
-						<a href="#tab-sale_products">
-							On a Sale </a>
-					</li> -->
+				
 					<li>
 						<a href="#tab-best_selling_products">
 							Bestsellers </a>
@@ -334,7 +338,14 @@
 		</section>
 
 		
-
+		<section class="preloading youtube" style="position:relative ; padding-bottom: 56.25%; height: 0;">
+			<iframe width="100%" height="500px" style="position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;"  src="https://www.youtube.com/embed/1638xMo2wC0?autoplay=1&modestbranding=1&controls=0&mute=1&loop=1" frameborder="0" 
+			 ></iframe>
+		</section>
 		<section id="home-brand" style="background-color: #F4F8FF">
 			<div class="container">
 				<div class="list list--7 h-carousel h-carousel--wide-arrows " id="brands-carousel">

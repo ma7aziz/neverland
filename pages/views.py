@@ -51,6 +51,7 @@ def review(request):
     
     review = Review(product= product, content=content, user= user , phone=phone)
     review.save()
+    print('saved')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from pages.models import Product
 from django.contrib.auth.models import User 
 from .models import Wishlist, Wishlist_item
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 # Create your views here.
 
@@ -53,7 +53,8 @@ def add_to_wishlist(request):
             wishlist.wishlist_item_set.add(wishlist_item)
             request.session['wishlist'] = wishlist.id
 
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return HttpResponse('Item added to wishlist ')
 
 def remove_wishlist(request, id):
     item = Wishlist_item.objects.get(pk=id)
