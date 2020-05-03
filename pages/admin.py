@@ -5,9 +5,9 @@ from .models import Category, Product , Subcategory , Review, HomeSlides , Size
 
 
 class PoroductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'category', 'featured', 'active')
+    list_display = ('id', 'title', 'category', 'featured', 'active', 'sector', 'subsector')
     list_display_links = ('id','title')
-    list_editable = ('featured','active')
+    list_editable = ('featured','active' , 'sector', 'category' ,'subsector')
     list_filter =('category','active', 'featured')
     list_per_page = 20
 

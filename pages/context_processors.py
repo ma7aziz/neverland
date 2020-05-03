@@ -1,4 +1,4 @@
-from .models import Product , Category
+from .models import Product , SECTOR_CHOICES ,CATEGORY_CHOICES
 from cart.models import Cart
 from wishlist.models import Wishlist, Wishlist_item
 import datetime
@@ -9,7 +9,8 @@ def add_variable_to_context(request):
     featured = Product.objects.featured()[:3]
     recent_items = items.order_by('-id')[:3]
     current_datetime = datetime.datetime.now()
-    categories = Category.objects.all().order_by('title')
+    categories = CATEGORY_CHOICES
+    sectors = SECTOR_CHOICES
     cart_count = 0
     if request.user.is_authenticated:
 
@@ -41,6 +42,7 @@ def add_variable_to_context(request):
         'current_year': current_datetime.year,
         'cart_count': cart_count,
         'categories': categories, 
-        'wishlist': wishlist_item
+        'wishlist': wishlist_item,
+        'sectors': sectors
     }
 

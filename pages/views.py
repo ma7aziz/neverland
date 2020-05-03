@@ -61,14 +61,33 @@ def review(request):
 
 
 
-def category(request, category):
-    
-    category = Category.objects.get( title = category )
-    items = Product.objects.active().filter(category=category)
-    sub_category = Subcategory.objects.all().filter(category = category)
-    print(category)
-    return render(request, 'category.html', {'items': items, 'category': category , 'subcategory':sub_category})
+def sector(request, sector):
+    print('test sector ')
+    items = Product.objects.active().filter(sector=sector.lower())
+    return render(request, 'sector.html', {'items': items, 'sector': sector})
 
+def subsector(request, subsector,sector):
+    print(Product.objects.get(pk=6))
+    print('test ')
+    items = Product.objects.active().filter(subsector=subsector.lower())
+    print(items)
+    return render(request, 'subsector.html', {'items': items, 'subsector': subsector , 'sector': sector})
+
+
+def category(request, category):
+    items = Product.objects.active().filter(category = category.lower())
+    print(category)
+    if request.method == 'POST':
+        print(request.POST)
+        filter = request.POST['filter']
+        category = request.POST['category']
+        unfiltered_items = Product.objects.active().filter(category = category.lower())
+        items = unfiltered_items.filter(subsector = filter)
+    return render(request, 'category.html', {'items': items, 'category': category} )
+
+# def filter(request):
+    
+#     return render(request , 'filter.html')
 
 def subcategory(request, id):
     get_sub = Subcategory.objects.get(pk=id)
