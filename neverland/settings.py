@@ -180,7 +180,7 @@ CACHES = {
         'LOCATION': 'dataflair_cache',
         'TIMEOUT': 900,
         'OPTIONS': {
-            'MAX_ENTRIES': 10,
+            
             'CALL_FREQUENCY': 1,
         }
     }
