@@ -34,20 +34,63 @@ class Subcategory(models.Model):
     class Meta:
         verbose_name_plural = 'Subcategories'
 
-    def __str__(self):
-        return f'{self.title}-{self.category}'
-
 class Size(models.Model):
     name = models.CharField(max_length=50)
     abb = models.CharField(max_length=5 , blank=True)
     def __str__(self):
         return self.name
+
+SUBSECTOR_CHOICES = [
+        ('Kids', (
+                ('boy', 'boy'),
+                ('girl', 'girl'),
+                ('baby', 'baby'),
+            )
+        ),
+        ('Adults', (
+                ('men', 'men'),
+                ('women', 'women'),
+            )
+        ),
+        ('Accessories', (
+                ('toys', 'toys'),
+                ('wigs', 'wigs'),
+                ('hats', 'hats'),
+                ('masks', 'masks'),
+                ('decoration', 'decoration'),
+                ('making', 'making'),
+
+            )
+        ),
+        
+    ]
+CATEGORY_CHOICES  = [
+    ('princess','princess') , 
+    ('heroes', 'heroes'),
+    ('cartoons ', 'cartoons'),
+    ('holloween', 'holloween'),
+    ('christmas', 'christmas'),
+    ('jobs', 'jobs'),
+    ('international', 'international'),
+    ('egyptian', 'egyptian'),
+    ('graduation', 'graduation'),
+    ('cosplay', 'cosplay'),
+    ('tv ', 'tv '),
+    ('fashion', 'fashion'),
+    ('historical', 'historical'),
+]
+SECTOR_CHOICES = [
+    ('kids', 'kids'),
+    ('adults', 'adults'),
+    ('accessories', 'accessories'),
+]
     
 class Product(models.Model):
     title = models.CharField(max_length=220)
-    category = models.ForeignKey(Category,  on_delete=models.SET_NULL, null=True)
-    subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True)
-    size =models.ManyToManyField(Size , blank = True , null = True)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default=' ')
+    sector = models.CharField(max_length=50, choices=SECTOR_CHOICES, default= ' ')
+    subsector = models.CharField(max_length=50, choices=SUBSECTOR_CHOICES, default=' ')
+    size =models.ManyToManyField(Size , blank = True)
     active = models.BooleanField(default=True)
     price = models.DecimalField(decimal_places=2, max_digits=10)
     description = models.TextField(max_length=500, blank=True)
