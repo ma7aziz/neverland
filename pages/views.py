@@ -33,7 +33,7 @@ def index(request):
     most_sold = items.order_by('-times_sold')[:8]
     featured = Product.objects.featured()[:8]
     recent_items = items.order_by('-id')[:8]
-    print(featured, most_sold, recent_items)
+    
     return render(request, 'index.html', {'slides': slides, 'recent_posts': recent_posts,'most_sold_home':most_sold, 'featured_home': featured ,'recent_items_home':recent_items})
 
 def product(request, id):
@@ -44,7 +44,7 @@ def product(request, id):
 
 
 def review(request):
-    print(request.POST)
+   
     product = Product.objects.get(pk= request.POST['item_id'])
     content = request.POST['review']
     phone = request.POST['phone']
@@ -56,29 +56,27 @@ def review(request):
     
     review = Review(product= product, content=content, user= user , phone=phone)
     review.save()
-    print('saved')
+    
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 
 def sector(request, sector):
-    print('test sector ')
+    
     items = Product.objects.active().filter(sector=sector.lower())
     return render(request, 'sector.html', {'items': items, 'sector': sector})
 
 def subsector(request, subsector,sector):
-    print(Product.objects.get(pk=6))
-    print('test ')
+    
     items = Product.objects.active().filter(subsector=subsector.lower())
-    print(items)
+
     return render(request, 'subsector.html', {'items': items, 'subsector': subsector , 'sector': sector})
 
 
 def category(request, category):
     items = Product.objects.active().filter(category = category.lower())
-    print(category)
+
     if request.method == 'POST':
-        print(request.POST)
         filter = request.POST['filter']
         category = request.POST['category']
         unfiltered_items = Product.objects.active().filter(category = category.lower())
@@ -92,7 +90,7 @@ def category(request, category):
 def subcategory(request, id):
     get_sub = Subcategory.objects.get(pk=id)
     items = Product.objects.all().filter(subcategory = get_sub)
-    print(get_sub)
+    
     return render(request , 'subcategory.html', {'items':items, 'subcategory':get_sub.title, 'category':get_sub.category})
 
 
