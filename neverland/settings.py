@@ -179,11 +179,11 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': 'dataflair_cache',
         'TIMEOUT': 900,
-        'OPTIONS': {
+        # 'OPTIONS': {
             
-            'CALL_FREQUENCY': 1,
+        #     'CALL_FREQUENCY': 1,
            
-            'MAX_ENTRIES': 1000
-        }
+        #     'MAX_ENTRIES': 1000
+        # }
     }
 }
