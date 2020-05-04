@@ -92,7 +92,7 @@
 				</div>
 				<img class="thumb" src="{% static 'img/DSC_1431.png' %}"
 					srcset="{%static 'img/girl-banner.png' %}"
-					alt="Dark Blue Jacket">
+					alt="Girl">
 				<div class="inner">
 					<h3 style="color: #D72378; font-size: 30px; font-family: 'Fredoka One', sans-serif">Girls <br> costumes </h3>
 				</div>
@@ -127,7 +127,7 @@
 									<div class="ip-shop-loop-thumb">
 										<a href="product/{{item.id}}">
 
-											<img src="{{item.image1.url}}" style="height: 100%;"	 />
+											<img src="{{item.image1.url}}" style="height: 100%;" loading="lazy"	 />
 										</a>
 									</div>
 
@@ -152,7 +152,7 @@
 												</a>
 
 												<a href="/product/{{item.id}}" >
-													<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
+												
 													<i class="fas fa-shopping-cart fa-2x"></i>add to cart
 												</a>
 
@@ -187,7 +187,7 @@
 
 											<img src="{{ item.image1.url }}" alt="{{ item.title }}"
 												class="thumb-shop-catalog lazyload front"
-												style="height: 100%;"	 />
+												style="height: 100%;"	loading="lazy" />
 										</a>
 									</div>
 
@@ -209,7 +209,7 @@
 												</a>
 
 												<a href="product/{{item.id}}" >
-													<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
+								
 													<i class="fas fa-shopping-cart fa-2x"></i>add to cart
 												</a>
 
@@ -244,10 +244,10 @@
 										<a href="product/{{item.id}}">
 											<span class="ip-shop-loop-new-badge">New</span>
 											<img src="{{item.image1.url }}" data-src="{{item.image1.url}}"
-												alt="Stride rite str tulip sandal"
+												alt="{{item.title}}"
 												class="thumb-shop-catalog lazyload front"
 												data-srcset="{{item.image1.url}} 210w,"
-												style="height: 100%;"  />
+												style="height: 100%;"   loading="lazy"/>
 										</a>
 									</div>
 
@@ -269,7 +269,6 @@
 												</a>
 
 												<a href="/product/{{item.id}}" >
-													<!-- <img class="svg-add" src="{% static 'img/icons/cart.svg' %}"> -->
 													<i class="fas fa-shopping-cart fa-2x"></i>add to cart
 												</a>
 
@@ -295,7 +294,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 100%;"  src="https://www.youtube.com/embed/1638xMo2wC0?autoplay=1&modestbranding=1&controls=0&mute=1&loop=1" frameborder="0" 
+			height: 100%;" loading="lazy"  src="https://www.youtube.com/embed/1638xMo2wC0?autoplay=1&modestbranding=1&controls=0&mute=1&loop=1" frameborder="0" 
 			 ></iframe>
 		</section>
 		
@@ -385,38 +384,7 @@
 			</div>
 		</section> -->
 
-		<!-- <section id="home-text" style="background: #31ACD8 ; color: #fff ;">
-			<div class="container">
-				<h1 style="border-bottom: 3px solid #fff;">Neverland Story</h1> 
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="entry-content story-slider">
-				
-							<div class="two-col">
-								<div class="left">
-									<img src="{%static 'img/about.jpeg' %} " height="100%"
-										alt="About us" loading="lazy">
-
-								</div>
-								<div class="right" style=" background: #31ACD8 ; color: #fff; font-size: 1.3em; line-height: 1.6">
-									<div>
-										Our story began in 2006 in Nasr city branch; our company was founded at this year and through this time we were the perfect company choice to sell costumes for (costume parties-events) all over the country. 
-										The second step was the Maadi branch in march2008 and this branch was the widespread branch between our costumer.
-										The third step was Zamalek branch in 2010 and this branch didn’t last more 1 year because the 25th January Egyptian revolution and the effect of it on the security and the people.
-										In 2014 the third branch is opened in 6 October city in Cityscape mall. <br>
-										We take a big step in 2015 to change the Nasr city branch to the other side from the street to be our biggest and main shop.
-										The current step for us is the new branch in Maxim mall in New Cairo.
-
-									</div>
-							</div>
-							
-						
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
+		
 		<section id="home-post">
 			<div class="container">
 				<div class="home-post-header-wrap">
@@ -462,12 +430,12 @@
 			</div>
 			<div class="home-gellery list "
 				  style="display:grid; grid-template-columns: repeat(6, 1fr) ; max-height: 150px">
-				<img src="{%static 'img/home-1.jpg'%}" alt="" width="100%" height="100%"  loading="lazy">	
-				<img src="{%static 'img/home-2.jpeg'%}" alt="" width="100%" height="100%" loading="lazy">	
-				<img src="{%static 'img/home-3.jpeg'%}" alt="" width="100%" height="100%" loading="lazy">	
-				<img src="{%static 'img/home-4.jpeg'%}" alt="" width="100%" height="100%" loading="lazy">	
-				<img src="{%static 'img/home-5.jpg'%}" alt="" width="100%" height="100%" loading="lazy">	
-				<img src="{%static 'img/home-6.jpeg'%}" alt="" width="100%" height="100%" loading="lazy">	
+				<img src="{%static 'img/home-1.jpg'%}" alt="home image" width="100%" height="100%"  loading="lazy" >	
+				<img src="{%static 'img/home-2.jpeg'%}" alt="home image" width="100%" height="100%" loading="lazy">	
+				<img src="{%static 'img/home-3.jpeg'%}" alt="home image" width="100%" height="100%" loading="lazy">	
+				<img src="{%static 'img/home-4.jpeg'%}" alt="home image" width="100%" height="100%" loading="lazy">	
+				<img src="{%static 'img/home-5.jpg'%}" alt="home image" width="100%" height="100%" loading="lazy">	
+				<img src="{%static 'img/home-6.jpeg'%}" alt="home image" width="100%" height="100%" loading="lazy">	
 			</div>
 		</section>
 		
