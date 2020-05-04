@@ -64,12 +64,15 @@ def review(request):
 def sector(request, sector):
     
     items = Product.objects.active().filter(sector=sector.lower())
+    if request.method == 'POST':
+        filter = request.POST['filter']
+        sector = request.POST['sector']
+        unfiltered_items = Product.objects.active().filter(sector = sector.lower())
+        items = unfiltered_items.filter(category = filter)
     return render(request, 'sector.html', {'items': items, 'sector': sector})
 
 def subsector(request, subsector,sector):
-    
     items = Product.objects.active().filter(subsector=subsector.lower())
-
     return render(request, 'subsector.html', {'items': items, 'subsector': subsector , 'sector': sector})
 
 
@@ -83,10 +86,6 @@ def category(request, category):
         items = unfiltered_items.filter(subsector = filter)
     return render(request, 'category.html', {'items': items, 'category': category} )
 
-# def filter(request):
-    
-#     return render(request , 'filter.html')
-
 def subcategory(request, id):
     get_sub = Subcategory.objects.get(pk=id)
     items = Product.objects.all().filter(subcategory = get_sub)
@@ -95,15 +94,13 @@ def subcategory(request, id):
 
 
 def search(request):
-
     keyword = request.GET.get('keyword').strip()
-    result = Product.objects.filter(title__contains=keyword)
+    result = Product.objects.filter(title__icontains=keyword.lower())
     return render(request, 'search.html', {'items': result,  'keyword': keyword })
 
 def shop(request):
     items = Product.objects.all()
     paginator = Paginator(items, 15 )
-
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

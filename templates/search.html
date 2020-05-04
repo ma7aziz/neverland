@@ -1,6 +1,5 @@
 {%extends 'base.html' %}
 {% load static %}
-{% block title %} Search Results {%endblock%}
 {% block content %}
 
 <body
@@ -61,7 +60,7 @@
                                     <div class="col-md-8">
                                         <nav class="woocommerce-breadcrumb">
                                             <ul>
-                                                <li><a href="">Shop</a></li>
+                                                <li><a href="{%url 'shop' %}">Shop</a></li>
                                                 <li>Search results for &ldquo;{{keyword}}&rdquo;</li>
                                             </ul>
                                         </nav>
@@ -97,10 +96,8 @@
                                             <div class="ip-shop-loop-thumb">
                                                 <a href="/product/{{item.id }}">
                                                     <img src="{{item.image1.url}}" data-src="{{ item.image1.url }}"
-                                                        alt="{{ item.title }}" class="thumb-shop-catalog lazyload "
-                                                        data-sizes="(min-width: 1200px) 210px, (min-width: 992px) 281px, (min-width: 768px) 293px, 
-                                                        (max-width: 600px) and (min-width: 412px) 140px, (max-width: 411px) 
-                                                        and (min-width: 360px) 100px, 360px" />
+                                                        alt="{{ item.title }}" class="thumb-shop-catalog lazyload " style="height:100%"
+                                                       />
                                                 </a>
                                             </div>
 
