@@ -14,25 +14,6 @@ class ProductManager(models.Manager):
     def featured(self):
             return self.filter(featured= True)
 
-# model product
-
-
-class Category(models.Model):
-    title = models.CharField(max_length=150, unique=True)
-
-    class Meta:
-        verbose_name_plural = 'Categories'
-
-    def __str__(self):
-        return self.title
-
-
-class Subcategory(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    title = models.CharField(max_length=150)
-
-    class Meta:
-        verbose_name_plural = 'Subcategories'
 
 class Size(models.Model):
     name = models.CharField(max_length=50)

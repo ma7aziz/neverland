@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Product, Review, Category , HomeSlides , Subcategory
+from .models import Product, Review, HomeSlides 
 from django.http import HttpResponseRedirect,  HttpResponse , JsonResponse
 from news.models import Post
 from wishlist.models import Wishlist
@@ -86,14 +86,15 @@ def category(request, category):
         items = unfiltered_items.filter(subsector = filter)
     return render(request, 'category.html', {'items': items, 'category': category} )
 
-def subcategory(request, id):
-    get_sub = Subcategory.objects.get(pk=id)
-    items = Product.objects.all().filter(subcategory = get_sub)
+# def subcategory(request, id):
+#     get_sub = Subcategory.objects.get(pk=id)
+#     items = Product.objects.all().filter(subcategory = get_sub)
     
-    return render(request , 'subcategory.html', {'items':items, 'subcategory':get_sub.title, 'category':get_sub.category})
+#     return render(request , 'subcategory.html', {'items':items, 'subcategory':get_sub.title, 'category':get_sub.category})
 
 
 def search(request):
+    
     keyword = request.GET.get('keyword').strip()
     result = Product.objects.filter(title__icontains=keyword.lower())
     return render(request, 'search.html', {'items': result,  'keyword': keyword })
@@ -125,3 +126,5 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def story(request):
+    return render(request, 'story.html')

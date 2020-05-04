@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product , Subcategory , Review, HomeSlides , Size
+from .models import  Product , Review, HomeSlides , Size
 # Register your models here.
 
 
@@ -13,8 +13,6 @@ class PoroductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, PoroductAdmin)
-admin.site.register(Category)
-admin.site.register(Subcategory)
 admin.site.register(Review)
 admin.site.register(HomeSlides)
 admin.site.register(Size)
