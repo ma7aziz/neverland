@@ -26,7 +26,7 @@ SECRET_KEY = 'c_^)z07=0p1ne(&jh0yvg99i2^2@*g8hkw+^$@dco_f068(=)c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['neverlandcostume.com' , '161.35.97.185']
+ALLOWED_HOSTS = ['neverlandcostume.com' , 'www.neverlandcostume.com', '167.172.242.135']
 
 
 # Application definition
