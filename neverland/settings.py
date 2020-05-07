@@ -52,9 +52,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -174,16 +174,16 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 
-CACHES = {
-    'default':{
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'dataflair_cache',
-        'TIMEOUT': 900,
-        # 'OPTIONS': {
+# CACHES = {
+#     'default':{
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': 'dataflair_cache',
+#         'TIMEOUT': 900,
+#         # 'OPTIONS': {
             
-        #     'CALL_FREQUENCY': 1,
+#         #     'CALL_FREQUENCY': 1,
            
-        #     'MAX_ENTRIES': 1000
-        # }
-    }
-}
+#         #     'MAX_ENTRIES': 1000
+#         # }
+#     }
+# }
