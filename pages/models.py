@@ -56,7 +56,7 @@ CATEGORY_CHOICES  = [
     ('egyptian', 'egyptian'),
     ('graduation', 'graduation'),
     ('cosplay', 'cosplay'),
-    ('tv ', 'tv '),
+    ('tv shows', 'tv shows'),
     ('fashion', 'fashion'),
     ('historical', 'historical'),
 ]

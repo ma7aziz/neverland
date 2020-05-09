@@ -40,7 +40,7 @@
         </div>
     </div>
     <div id="home-top-menu" class="top-menu with-bg" style="background-color:#C2E7F7;color:#394c69">
-        <div class="container">
+        <!-- <div class="container"> -->
 
 
 
@@ -49,7 +49,7 @@
                 <ul class="menu" style="margin: 0 auto !important">
                     {% for s , k in categories %}
                     <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children ">
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent  ">
                         <a href="{% url 'category' s %}">{{s.capitalize}}</a>
                     </li>
                     {% endfor %}
@@ -59,7 +59,7 @@
                 </ul>
             </nav>
         </div>
-    </div>
+    <!-- </div> -->
     <div class="main-menu">
         <div class="container">
 

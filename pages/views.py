@@ -72,7 +72,13 @@ def sector(request, sector):
     return render(request, 'sector.html', {'items': items, 'sector': sector})
 
 def subsector(request, subsector,sector):
+
     items = Product.objects.active().filter(subsector=subsector.lower())
+    if request.method == 'POST':
+        filter = request.POST['filter']
+        subsector = request.POST['subsector']
+        unfiltered_items = Product.objects.active().filter(subsector = subsector.lower())
+        items = unfiltered_items.filter(category = filter)
     return render(request, 'subsector.html', {'items': items, 'subsector': subsector , 'sector': sector})
 
 

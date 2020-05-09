@@ -75,6 +75,18 @@
 										</nav>
 									</div>
 									<div class="col-md-4 col-sm-12 ip-shop-ordering-row">
+                                        <form class="woocommerce-ordering" method="POST"
+                                            action="{%url 'subsector' sector subsector %}">
+                                            {% csrf_token %}
+                                            <select name="filter" class="orderby styled" aria-label="Shop order">
+                                                <option value="menu_order" disabled selected="selected">Filter Products
+                                                </option>
+                                                {% for s, k in categories %}
+                                                <option value="{{s}}">{{k.capitalize}}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <input type="hidden" name="subsector" value="{{subsector}}" />
+                                        </form>
 										<a href="#" class="mobile-sidebar">
 											<svg>
 												<use xlink:href="#svg-sidebar" />
