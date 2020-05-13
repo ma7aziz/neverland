@@ -15,24 +15,23 @@
                         <div class="col-md-3">
                             <div id="ip-shop-sidebar">
                                 <aside id="woocommerce_top_rated_products-3"
-									class="widget woocommerce widget_top_rated_products">
-									<h2 class="widget-title">Shop Categories</h2>
-									<ul class="">
+                                    class="widget woocommerce widget_top_rated_products">
+                                    <h2 class="widget-title">Shop Categories</h2>
+                                    <ul class="">
                                         {% for s , k in categories %}
-										<li>
+                                        <li>
 
-											<a href="{% url 'category' s %}">
-										
-													 <span
-													class="">{{s.capitalize}}</span>
-											</a>
+                                            <a href="{% url 'category' s %}">
 
-										</li>
+                                                <span class="">{{s.capitalize}}</span>
+                                            </a>
+
+                                        </li>
                                         {%endfor%}
-										
 
-									</ul>
-								</aside> 
+
+                                    </ul>
+                                </aside>
                                 <aside id="woocommerce_top_rated_products-3"
                                     class="widget woocommerce widget_top_rated_products">
                                     <h2 class="widget-title">Top Rated Products</h2>
@@ -41,8 +40,7 @@
                                         <li>
 
                                             <a href="/product/{{item.id}}">
-                                                <img width="70" height="70"
-                                                    data-src="{{item.image1.url}}"
+                                                <img width="70" height="70" data-src="{{item.image1.url}}"
                                                     class="lazyload attachment-thumbnail size-thumbnail" alt=""
                                                     data-srcset="{{item.image1.url}} 70w,"
                                                     data-sizes="(max-width: 70px) 100vw, 70px" /> <span
@@ -54,27 +52,28 @@
                                                     class="woocommerce-Price-currencySymbol">LE</span>{{ item.price }}</span>
                                         </li>
                                         {% endfor %}
-                                
+
 
                                     </ul>
-                                </aside> 
+                                </aside>
                             </div>
                         </div>
                         <div class="col-md-9">
                             <header class="woocommerce-products-header main-header ip-shop-header">
-								<h1 class="woocommerce-products-header__title page-title">{{subsector}}</h1>
-								
-								<div class="row grid-header">
-									<div class="col-md-8">
-										<nav class="woocommerce-breadcrumb">
-											<ul>
-												<li><a href="{%url 'shop' %}">shop</a></li>
-												<li><a href="/category/{{sector}}">{{sector}}</a></li>
-												<li>{{subsector}}</li>
-											</ul>
-										</nav>
-									</div>
-									<div class="col-md-4 col-sm-12 ip-shop-ordering-row">
+                                <h1 class="woocommerce-products-header__title page-title"
+                                    style="font-family: Montserrat , sans-serif;">{{subsector.capitalize}}</h1>
+
+                                <div class="row grid-header">
+                                    <div class="col-md-8">
+                                        <nav class="woocommerce-breadcrumb">
+                                            <ul>
+                                                <li><a href="{%url 'shop' %}">shop</a></li>
+                                                <li><a href="/category/{{sector}}">{{sector}}</a></li>
+                                                <li>{{subsector}}</li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 ip-shop-ordering-row">
                                         <form class="woocommerce-ordering" method="POST"
                                             action="{%url 'subsector' sector subsector %}">
                                             {% csrf_token %}
@@ -82,20 +81,24 @@
                                                 <option value="menu_order" disabled selected="selected">Filter Products
                                                 </option>
                                                 {% for s, k in categories %}
+                                                {% if  subsector ==  'boy' and  s == 'princess' %}
+                                                {%elif  subsector ==  'men' and  s == 'princess'  %}
+                                                {% else %}
                                                 <option value="{{s}}">{{k.capitalize}}</option>
+                                                {% endif %}
                                                 {% endfor %}
                                             </select>
                                             <input type="hidden" name="subsector" value="{{subsector}}" />
                                         </form>
-										<a href="#" class="mobile-sidebar">
-											<svg>
-												<use xlink:href="#svg-sidebar" />
-											</svg>
-										</a>
-									</div>
+                                        <a href="#" class="mobile-sidebar">
+                                            <svg>
+                                                <use xlink:href="#svg-sidebar" />
+                                            </svg>
+                                        </a>
+                                    </div>
 
-								</div>
-							</header>
+                                </div>
+                            </header>
 
                             <div class="woocommerce-notices-wrapper">
                             </div>
@@ -107,9 +110,8 @@
                                         <div class="ip-shop-loop-wrap">
                                             <div class="ip-shop-loop-thumb">
                                                 <a href="/product/{{item.id}}">
-                                                    <img src="{{item.image1.url}}"
-                                                        alt="{{ item.title }}" class="thumb-shop-catalog lazyload "
-                                                        style="height: 100%;" />
+                                                    <img src="{{item.image1.url}}" alt="{{ item.title }}"
+                                                        class="thumb-shop-catalog lazyload " style="height: 100%;" />
                                                 </a>
                                             </div>
 
@@ -124,18 +126,19 @@
                                                                 </span>{{item.price}}</span></span>
                                                     </div>
                                                     <div class="ip-shop-loop-actions">
-                                                        
-                                                            <a href="/product/{{item.id}}" class="cart_add" data-id="{{item.id}}">
-                                                              
-                                                                <i class="fas fa-shopping-cart fa-2x"></i>
-                                                                add to cart 
-                                                            </a>
 
-                                                            <a href="#" class="wishlist-btn ip-wishlist-btn " data-id="{{item.id}}"
-                                                            data-title="Wishlist">
-                                                            <i class="far fa-heart fa-2x" ></i>
+                                                        <a href="/product/{{item.id}}" class="cart_add"
+                                                            data-id="{{item.id}}">
+
+                                                            <i class="fas fa-shopping-cart fa-2x"></i>
+                                                            add to cart
                                                         </a>
-                                                            
+
+                                                        <a href="#" class="wishlist-btn ip-wishlist-btn "
+                                                            data-id="{{item.id}}" data-title="Wishlist">
+                                                            <i class="far fa-heart fa-2x"></i>
+                                                        </a>
+
                                                         <span class="ip-shop-loop-loading"><i></i><i></i><i></i></span>
                                                     </div>
                                                 </div>
@@ -156,8 +159,8 @@
     </div><!-- #wrap -->
     <div id="ip-quickview"></div>
 
-    
-<!-- <script
+
+    <!-- <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>

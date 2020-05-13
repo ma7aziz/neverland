@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-md-9">
                             <header class="woocommerce-products-header main-header ip-shop-header">
-								<h1 class="woocommerce-products-header__title page-title">{{sector}}</h1>
+								<h1 class="woocommerce-products-header__title page-title" style="font-family: Montserrat , sans-serif;">{{sector.capitalize}}</h1>
 								<div class="products-wrap products-wrap--category">
 									<div class="products products--category">
                                         <!-- {% for s in subcategory %}
@@ -107,7 +107,7 @@
                                                     alt="Boys" width="70" height="70" />
                                                 </div>
                                                 <div class="ip-shop-loop-details">
-                                                    <h2 class="woocommerce-loop-category__title">
+                                                    <h2 class="woocommerce-loop-category__title" >
                                                         Boys Costumes </h2>
                                                 </div>
                                             </a>  
@@ -144,7 +144,7 @@
                                         {% elif sector.lower == 'adults' %}
                                         <div class="product-category product first">
                                             <div class="ip-shop-loop-wrap">
-                                            <a href="/category/kids/men">
+                                            <a href="/category/adults/men">
                                                 <div class="ip-shop-loop-thumb">
                                                     <img class="thumb-img" src="{%static 'img/couple.svg' %}"
                                                     alt="Boys" width="70" height="70" />
@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="product-category product first">
                                             <div class="ip-shop-loop-wrap">
-                                            <a href="/category/kids/women">
+                                            <a href="/category/adults/women">
                                                 <div class="ip-shop-loop-thumb">
                                                     <img class="thumb-img" src="{%static 'img/couple.svg' %}"
                                                     alt="couples" width="70" height="70" />
