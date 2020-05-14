@@ -39,8 +39,8 @@ def index(request):
 def product(request, id):
     item = Product.objects.get(pk=id)
     reviews = Review.objects.all().filter(product=item).order_by('-timestamp')
-    reviews_count = len(reviews)
-    return render(request, 'product.html', {'item' : item , 'reviews' :reviews , 'count': reviews_count})
+    
+    return render(request, 'product.html', {'item' : item , 'reviews' :reviews , 'count': len(reviews)})
 
 
 def review(request):
@@ -56,6 +56,8 @@ def review(request):
     
     review = Review(product= product, content=content, user= user , phone=phone)
     review.save()
+    messages.success(request, 'Thank you for your feedback. ')
+
     
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

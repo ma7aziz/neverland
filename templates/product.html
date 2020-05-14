@@ -18,6 +18,10 @@
 
 	}
 
+	.current-tab {
+		display: block;
+	}
+
 	@media (max-width: 700px) {
 		.size-choice {
 			padding: 7px 10px 11px 10px;
@@ -236,28 +240,56 @@
 											<div class="woocommerce-tabs wc-tabs-wrapper">
 												<div class="wrap">
 													<ul class="tabs wc-tabs col-lg-12" role="tablist">
+														<li class="active">
+															<a href="#tab-reviews">Reviews({{count}})</a>
+														</li>
 
-														<li class="reviews_tab active" id="tab-title-reviews" role="tab"
-															aria-controls="tab-reviews">
-															<a href="#tab-reviews">Reviews ({{count}})</a>
+														<li class="">
+															<a href="#tab-return">Return policy</a>
 														</li>
 													</ul>
 												</div>
-												<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab  current col-md-10 col-md-offset-1"
-													id="tab-description" role="tabpanel"
-													aria-labelledby="tab-title-description">
+
+												<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description  col-md-10 col-md-offset-1"
+													id="tab-return" role="tabpanel"
+													aria-labelledby="tab-title-description" style="display: none;">
+													<h3>Our quick & easy returns policy means that you can return any
+														item up to 14 working days from purchase, subject to the
+														following:</h3>
+													<p>
+														<ol>
+															<li>The item being returned must be unused, not damaged and
+																in a
+																saleable condition.</li>
+															<li>The item must be returned in original packaging.</li>
+															<li> The item must be returned to us within 14 working days
+																of
+																purchase.</li>
+															<li>Due to hygiene reasons, wigs, SFX makeup, face paint,
+																teeth,
+																fangs, colored lenses, tights, and underwear must be
+																returned
+																unopened and unused with the seals in place.</li>
+															<li>To return an item, complete the returns form on your
+																delivery
+																note and enclose it with your parcel. <a
+																	href="neverlandcostume.com">neverlandcostume.com</a>
+																does
+																not pay for return delivery.</li>
+														</ol>
 
 
-													<p></p>
+														None of the above affects your statutory right <br>
+													</p>
 												</div>
-												<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel   col-md-10 col-md-offset-1"
+
+												<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews current-tab col-md-10 col-md-offset-1"
 													id="tab-reviews" role="tabpanel"
 													aria-labelledby="tab-title-reviews">
 													<div id="reviews" class="woocommerce-Reviews">
 														<div id="comments">
 															{% if reviews %}
-															<!-- <h2 class="woocommerce-Reviews-title">
-																Reviews </h2> -->
+
 															<ol class="commentlist">
 
 																{% for review in reviews %}
@@ -266,7 +298,7 @@
 
 																	<div id="comment-400" class="comment_container">
 
-																		<img alt=''
+																		<img alt='avatar image'
 																			src='https://secure.gravatar.com/avatar/a7772f82347db74458e1481eef1234fd?s=60&d=mm&r=g'
 																			srcset='https://secure.gravatar.com/avatar/a7772f82347db74458e1481eef1234fd?s=60&d=mm&r=g'
 																			class='avatar avatar-60 photo' height='60'
@@ -283,7 +315,7 @@
 
 
 																	</div>
-																</li><!-- #comment-## -->
+																</li>
 																{% endfor %}
 															</ol>
 
@@ -324,13 +356,13 @@
 																			<input id="author" name="author" type="text"
 																				value="" size="30" required />
 																		</p>
-																		<p class="comment-form-email">
+
+																		{% endif %}
+																		<p class="comment-form-phone">
 																			<label for="phone">Phone&nbsp;<span
 																					class="required"></span></label>
 																			<input name="phone" type="text" value=""
-																				size="30" /></p>
-
-																		{% endif %}
+																				size="30" required /></p>
 
 																		<p class="comment-form-comment"
 																			style="margin-top: 10px;">
@@ -353,8 +385,8 @@
 											</div>
 										</div>
 
-										{% if item.related_item1 or item.related_item2 or item.related_item3 %}
 										<section class="related products">
+										{% if item.related_item1 or item.related_item2 or item.related_item3 %}
 
 											<h2>Related products</h2>
 
@@ -527,11 +559,12 @@
 
 												</div>
 											</div>
-											<div class="clear"></div>
+											
 
+											{% endif %}
 										</section>
-										{% endif %}
-
+										<div class="clear"></div>
+										<div class="clear"></div>
 									</div>
 								</div>
 							</div>
@@ -539,9 +572,9 @@
 					</div>
 				</div>
 			</main>
-			{%include 'partials/footer.html' %}
 		</div>
 	</div>
+	{%include 'partials/footer.html' %}
 
 
 
@@ -574,6 +607,22 @@
 		})
 	</script>
 
+	<script>
+		$(document).ready(function () {
+
+			$(".tabs li ").click(function () {
+				$('#tab-reviews').hide();
+
+				$('#tab-return').hide();
+
+				let selected_tab = $(this).find("a").attr("href");
+				$(selected_tab).fadeIn();
+
+				return false;
+
+			})
+		})
+	</script>
 
 </body>
 
