@@ -85,22 +85,25 @@
 									class="product type-product post-107 status-publish first instock product_cat-accessories product_cat-gifts has-post-thumbnail shipping-taxable purchasable product-type-simple">
 									<div class="row">
 										<!-- <div class="ip-product-thumbnails-col col-md-1 hidden-sm hidden-xs">
-												<div class="thumbnails slick-product slick-slide-count--2 slick-product--left"
-													data-count="2">
-													<div class="current slide"><img width="70" height="70"
-															src="{{item.image1.url}}"
-															class="attachment-thumbnail size-thumbnail wp-post-image"
-															alt="" srcset="{{item.image1.url}} 70w, "
-															sizes="(max-width: 70px) 100vw, 70px" /></div>
-													{% if item.image2 %}
-													<div class="slide"><img width="70" height="70"
-															src="{{item.image2.url}}"
-															class="attachment-thumbnail size-thumbnail" alt=""
-															srcset="{{item.image2.url}}"
-															sizes="(max-width: 70px) 100vw, 70px" /></div>
-													{% endif %}
+											<div class="thumbnails slick-product slick-slide-count--2 slick-product--left"
+												data-count="2">
+												<div class="slide"><img width="70" height="70"
+														src="{{item.image1.url}}"
+														class="attachment-thumbnail size-thumbnail wp-post-image" alt="product image"
+														 />
 												</div>
-											</div> -->
+												{% if item.image2 %}
+												<div class="slide"><img src="{{item.image2.url}}"
+														class="attachment-thumbnail size-thumbnail" alt="product image2"  style="width: 70px ; height: 70px; "/>
+												</div>
+												{% endif %}
+												{% if item.image3 %}
+												<div class="slide"><img  src="{{item.image3.url}}" style="width: 70px ; height: 70px"
+														class="attachment-thumbnail size-thumbnail" alt="product image2" />
+												</div>
+												{% endif %}
+											</div>
+										</div> -->
 										<div class="images ip-product-images-col col-lg-6 col-md-6 col-sm-12">
 											<div class="wrap">
 												<div class="slick-product-single ">
@@ -386,7 +389,7 @@
 										</div>
 
 										<section class="related products">
-										{% if item.related_item1 or item.related_item2 or item.related_item3 %}
+											{% if item.related_item1 or item.related_item2 or item.related_item3 %}
 
 											<h2>Related products</h2>
 
@@ -559,7 +562,7 @@
 
 												</div>
 											</div>
-											
+
 
 											{% endif %}
 										</section>
@@ -590,8 +593,16 @@
 			arrows: true,
 			autoplay: true,
 			prevArrow: '<i class="fas fa-chevron-left  slick-prev fa-2x "></i>',
-			nextArrow: '<i class="fas fa-chevron-right slick-next fa-2x"></i>'
+			nextArrow: '<i class="fas fa-chevron-right slick-next fa-2x"></i>',
+			asNavFor: '.slick-product'
 
+		})
+		$('.slick-product').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slick-product-single',
+			focusOnSelect: true,
+	
 		})
 	</script>
 
